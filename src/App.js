@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import {Routes, Route} from 'react-router-dom';
 import './App.css';
+import Navigation from './components/Navigation/Navigation';
+import Create from './components/Create/Create';
+import WishList from './components/WishList/WishList';
+import WishItem from './components/WishItem/WishItem';
+import Footer from './components/Footer/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="App"> 
+      <Navigation/>
+      <header className="App-header"> 
+        <p><h1>Share your Christmas wish!</h1><h3>See the how it is rated by Santa</h3></p>
+        <img src="https://c.tenor.com/D_gQuXRVQ2wAAAAC/sports-sportsmanias.gif" className="App-logo" alt="logo" />
       </header>
+      <main>
+      <Routes>
+      <Route path="/" element={<WishList/>} />
+      <Route path="/create" element={<Create/>} />
+      <Route path="/wish" element={<WishItem/>} />
+      </Routes>
+      </main>
+      <footer>
+      <Footer/>
+      </footer>
     </div>
   );
 }

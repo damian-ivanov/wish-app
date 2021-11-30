@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
+
+
+ul.wishList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Mountains of Christmas';
+    font-size: calc(9px + 2vmin);
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul li.wishCard {
+    margin-top: 20px;
+    width: 30%;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background: darkseagreen;
+    color: white;
+}
+
+h4{
+    border-bottom: 1px white dashed;
+}
+
+.text {
+    background: white;
+    min-height: 200px;
+    padding: 10px;
+    margin: 20px;
+    color: gray;
+    border-radius: 13px;
+}
+
+.votes {
+    position: relative;
+  text-align: center;
+  color: white;
+}
+
+.votes img {
+    width: 30%;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: calc(11px + 2vmin);
+  }
+
+button {
+    border: none;
+    color: gray;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+  }

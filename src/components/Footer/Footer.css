@@ -1,0 +1,12 @@
+.footer {
+    border-top: 1px lightgray solid;
+    background-color: #fcfefc;;
+    margin-top:50px;
+    min-height: 50vh;
+    font-family: 'Mountains of Christmas';
+    font-size: calc(12px + 2vmin);
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
