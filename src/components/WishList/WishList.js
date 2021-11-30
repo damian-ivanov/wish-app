@@ -9,7 +9,7 @@ export default function WishList () {
                 <h4>Title</h4>
                 <p className="text">This here is my wish, Pleasse vote for it</p>
                 <p>Submitted by: Damian</p>
-                <p className="votes"><img src="heart.png" alt="heart"></img><div className="centered">42</div></p>
+                <p className="votes"><img src="heart.png" alt="heart"></img></p><p className="centered">42</p>
                 <button type="button">+ 1</button>
                 <p className="details">details...</p>
             </li>
