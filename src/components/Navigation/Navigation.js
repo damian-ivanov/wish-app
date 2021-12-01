@@ -7,7 +7,7 @@ export default function Navigation()
         <nav>
           <ul>
             <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/'}>Index</NavLink></li>
-            <li>Login</li>
+            <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/login'}>Log in</NavLink></li>
             <li>Register</li>
             <li>Log out</li>
             <li>My profile</li>
