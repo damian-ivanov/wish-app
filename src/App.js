@@ -7,8 +7,14 @@ import WishItem from './components/WishItem/WishItem';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
+import { initializeApp } from "firebase/app"
+import { firebaseConfig } from './config/firebaseConfig';
+
 
 function App() {
+
+  const app = initializeApp(firebaseConfig);
+
   return (
     <div className="App">
       <Navigation />

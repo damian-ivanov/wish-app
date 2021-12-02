@@ -1,49 +1,49 @@
-export default function Register () {
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-    // const onLoginHandler = (e) => {
-    //     e.preventDefault();
+export default function Register() {
 
-    //     usermodel
+    const onRegisterHandler = (e) => {
+        e.preventDefault();
 
-    //     let formData = new FormData(e.currentTarget);
+        let formData = new FormData(e.currentTarget);
+        let { email, password } = Object.fromEntries(formData);
+        console.log(email, password);
 
-    //     let email = formData.get('email');
-    //     let password = formData.get('password');
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log("Successfull sign in!")
+            })
+            .catch((error) => {
+                //const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage)
+            });
+    }
 
-    //     authService.login(email, password)
-    //         .then((authData) => {
-    //            // login(authData);
-    //            console.log(authData);
-    //             navigate('/dashboard');
-    //         })
-    //         .catch(err => {
-    //             // TODO: show notification
-    //             console.log(err);
-    //         });
-    //     }
-            
     return (
         <>
-        {/* <h1>Register</h1>
-        <p class="form-info">Already registered?
-            <a href="/login">Login now</a> and have some fun!
-        </p>
+            <h1>Register</h1>
+            <p class="form-info">Already registered?
+                <a href="/login">Login now</a> and have some fun!
+            </p>
 
-        <form id="register-form" onSubmit={onLoginHandler} method="POST">
-            <div>
-                <input type="email" placeholder="Email..." name="email"/>
-            </div>
-            <div>
-                <input type="password" placeholder="Password" name="password"/>
-            </div>
-            <div>
-                <input type="password" placeholder="Re-password" name="repassword"/>
-            </div>
-            <div>
-                <p class="message"></p>
-                <button>Register</button>
-            </div>
-        </form> */}
+            <form id="register-form" onSubmit={onRegisterHandler} method="POST">
+                <div>
+                    <input type="email" placeholder="Email..." name="email" />
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" name="password" />
+                </div>
+                {/* <div>
+                    <input type="password" placeholder="Re-password" name="repassword" />
+                </div> */}
+                <div>
+                    <p class="message"></p>
+                    <button>Register</button>
+                </div>
+            </form>
         </>
     )
 }
