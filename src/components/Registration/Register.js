@@ -1,7 +1,9 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
-
+    
+    const navigate = useNavigate();
     const onRegisterHandler = (e) => {
         e.preventDefault();
 
@@ -13,10 +15,10 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log("Successfull sign in!")
+                console.log(user.uid);
+                navigate('/login');
             })
             .catch((error) => {
-                //const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage)
             });
@@ -25,9 +27,7 @@ export default function Register() {
     return (
         <>
             <h1>Register</h1>
-            <p class="form-info">Already registered?
-                <a href="/login">Login now</a> and have some fun!
-            </p>
+           
 
             <form id="register-form" onSubmit={onRegisterHandler} method="POST">
                 <div>
@@ -40,7 +40,6 @@ export default function Register() {
                     <input type="password" placeholder="Re-password" name="repassword" />
                 </div> */}
                 <div>
-                    <p class="message"></p>
                     <button>Register</button>
                 </div>
             </form>

@@ -1,82 +1,44 @@
-import { useContext } from 'react';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 //import { AuthContext } from '../../contexts/AuthContext';
 
-import * as authService from '../../services/authService';
-
-const Login = () => {
-    //const { login } = useContext(AuthContext);
+export default function Login() {
+    
     const navigate = useNavigate();
-
+    
     const onLoginHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
+        let { email, password } = Object.fromEntries(formData);
 
-        let email = formData.get('email');
-        let password = formData.get('password');
-
-        authService.login(email, password)
-            .then((authData) => {
-               // login(authData);
-               console.log(authData);
-                navigate('/dashboard');
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                console.log("Successful log in!")
+                navigate('/');
             })
-            .catch(err => {
-                // TODO: show notification
-                console.log(err);
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage)
             });
     }
 
     return (
-        <section id="login-page" className="login">
+        <>
+            <h1>Login</h1>
             <form id="login-form" onSubmit={onLoginHandler} method="POST">
-                <fieldset>
-                    <legend>Login Form</legend>
-                    <p className="field">
-                        <label htmlFor="email">Email</label>
-                        <span className="input">
-                            <input type="text" name="email" id="email" placeholder="Email" />
-                        </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="password">Password</label>
-                        <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password" />
-                        </span>
-                    </p>
-                    <input className="button submit" type="submit" value="Login" />
-                </fieldset>
+                <div>
+                    <input type="email" placeholder="Email..." name="email" />
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" name="password" />
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
             </form>
-        </section>
-    );
+        </>
+    )
 }
-
-export default Login;
-
-
-// export default function Login () {
-
-    
-//         // fetch('http://localhost:3030/jsonstore/collections/books')
-//         // .then(res => res.json())
-//         // .then(data => console.log(data));        
-
-//         fetch('http://localhost:3030/users/login', {
-//             method: 'POST',
-//             headers: {
-//                 'content-type': 'application/json'
-//             },
-//             body: JSON.stringify('peter@abv.bg', '123456')
-//         })
-//         .then(res => res.json())
-//         .then(data => console.log(data));        
-    
-//     return (
-//         <>
-        
-//         <h1>oh hi!</h1>
-//         </>
-//     )   
-// }

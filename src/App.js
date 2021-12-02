@@ -7,13 +7,14 @@ import WishItem from './components/WishItem/WishItem';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
+import Logout from './components/Logout/Logout';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
 
 
 function App() {
 
-  const app = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
   return (
     <div className="App">
@@ -28,10 +29,11 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<WishList />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/create" element={<Create />} />
           <Route path="/wish" element={<WishItem />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </main>
       <footer>
