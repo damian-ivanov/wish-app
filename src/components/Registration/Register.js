@@ -16,7 +16,7 @@ export default function Register() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user.uid);
-                navigate('/login');
+                navigate('/');
             })
             .catch((error) => {
                 const errorMessage = error.message;

@@ -41,6 +41,7 @@ const Navigation = () => {
           });
       }}
       >Log out</NavLink></li>
+      <li><img src="snowflake.png" alt="snowflake"/> Welcome, {userEmail}</li>
     </>
   )
 
