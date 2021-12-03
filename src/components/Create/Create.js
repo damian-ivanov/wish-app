@@ -1,11 +1,31 @@
+import { getFirestore } from "firebase/firestore"
+import { collection, addDoc } from "firebase/firestore";
+
 export default function Create() {
 
-    const submitHandler = (e) => {
+    const db = getFirestore();
+
+    const submitHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { title, description, isGood } = Object.fromEntries(formData);
+
         console.log(title, description, Boolean(isGood));
+
+        try {
+            const docRef = await addDoc(collection(db, "wishes"), {
+                title: title,
+                description: description,
+                authorId: "test"
+            });
+          
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+
+
     }
 
     return (

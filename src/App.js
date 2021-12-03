@@ -11,10 +11,10 @@ import Logout from './components/Logout/Logout';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
 
-
 function App() {
 
   initializeApp(firebaseConfig);
+
 
   return (
     <div className="App">
