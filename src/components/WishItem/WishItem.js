@@ -1,4 +1,4 @@
-import { Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './WishItem.css';
 
 const WishItem  = ({

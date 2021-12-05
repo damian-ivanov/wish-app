@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import Create from './components/Create/Create';
 import WishList from './components/WishList/WishList';
 import WishItem from './components/WishItem/WishItem';
+import WishDetails from './components/WishDetails/WishDetails';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
@@ -30,7 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WishList />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/wish/:wishId" element={<WishItem />} />
+          <Route path="/wish/:wishId" element={<WishDetails />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />

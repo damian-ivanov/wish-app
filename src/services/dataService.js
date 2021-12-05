@@ -1,21 +1,21 @@
 import { getFirestore } from "firebase/firestore"
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 
-export const getOne = async () => {
+export const getOne = async (wishId) => {
 
     const db = getFirestore();
-    const docRef = doc(db, "wishes", "MNrSIFyaAdICFfwxTWjO");
+    const query = doc(db, "wishes", wishId);
+    
+    const wish = await getDoc(query);
 
-    const docSnap = await getDoc(docRef);
+    console.log("FROM THE QUERY")
 
-    // let result = Object.values(docSnap.data())
-    // return result;
-
-    if (docSnap.exists()) {
+    if (wish.exists()) {
         return {
-            title: docSnap.data().title,
-            description: docSnap.data().description,
-            authorId: docSnap.data().authorId
+            id: wish.id,
+            title: wish.data().title,
+            description: wish.data().description,
+            authorId: wish.data().authorId
         }
     } else {
         return console.log("No such document!");
@@ -25,7 +25,6 @@ export const getOne = async () => {
 export const getAll = async () => {
 
     const db = getFirestore();
-
     const query = await getDocs(collection(db, "wishes"));
 
     var result = [];
@@ -33,6 +32,7 @@ export const getAll = async () => {
     query.forEach(wish => {
         result.push(
             {
+                id: wish.id,
                 title: wish.data().title,
                 description: wish.data().description,
                 authorId: wish.data().authorId
