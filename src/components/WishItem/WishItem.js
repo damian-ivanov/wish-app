@@ -14,11 +14,6 @@ const WishItem  = ({
             <button type="button">+ 1</button>
             <Link className="details" to={`/wish/${wish.id}`}>Details</Link>
         </li>
-            /* <div className="statistics">
-                <h3 className="wishItem">Statistics:</h3>
-                <p>Submitted on: </p>
-                <p>Votes given by: </p>
-            </div> */
       
     )
 }
