@@ -1,14 +1,12 @@
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import { collection, getDocs, getDoc, deleteDoc, doc } from "firebase/firestore";
 
 export const getOne = async (wishId) => {
 
     const db = getFirestore();
     const query = doc(db, "wishes", wishId);
-    
-    const wish = await getDoc(query);
 
-    console.log("FROM THE QUERY")
+    const wish = await getDoc(query);
 
     if (wish.exists()) {
         return {
@@ -40,4 +38,12 @@ export const getAll = async () => {
     });
 
     return result;
+};
+
+export const deleteWish = async (wishId) => {
+
+    const db = getFirestore();
+    await deleteDoc(doc(db, "wishes", wishId));
+
+    return true;
 };

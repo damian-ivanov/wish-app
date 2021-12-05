@@ -3,7 +3,6 @@ import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import Create from './components/Create/Create';
 import WishList from './components/WishList/WishList';
-import WishItem from './components/WishItem/WishItem';
 import WishDetails from './components/WishDetails/WishDetails';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
