@@ -30,7 +30,7 @@ export default function WishDetails() {
                 <h4>{wish.title}</h4>
                 <p className="text">{wish.description}</p>
                 <p>Submitted by: {wish.authorId}</p>
-                <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">42</p></p>
+                {/* <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">42</p></p> */}
                 <button type="button">+ 1</button>
                 <button type="button">Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>

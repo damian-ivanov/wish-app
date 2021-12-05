@@ -1,5 +1,5 @@
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, getDoc, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, getDoc, deleteDoc, doc, addDoc } from "firebase/firestore";
 
 export const getOne = async (wishId) => {
 
@@ -44,6 +44,26 @@ export const deleteWish = async (wishId) => {
 
     const db = getFirestore();
     await deleteDoc(doc(db, "wishes", wishId));
+
+    return true;
+};
+
+export const createWish = async (title, description, authorId ) => {
+
+    const db = getFirestore();
+    
+    try {
+        const docRef = await addDoc(collection(db, "wishes"), {
+            title: title,
+            description: description,
+            authorId: authorId
+        });
+      
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+
 
     return true;
 };

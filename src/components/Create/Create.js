@@ -1,10 +1,9 @@
-import { getFirestore } from "firebase/firestore"
-import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+import * as dataService from '../../services/dataService';
 
 export default function Create() {
 
-    const db = getFirestore();
-
+    const navigate = useNavigate();
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -13,18 +12,10 @@ export default function Create() {
 
         console.log(title, description, Boolean(isGood));
 
-        try {
-            const docRef = await addDoc(collection(db, "wishes"), {
-                title: title,
-                description: description,
-                authorId: "test"
-            });
-          
-            console.log("Document written with ID: ", docRef.id);
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
-
+        dataService.createWish(title, description, "testMe")
+        .then(() => {
+            navigate('/');
+        });
 
     }
 
