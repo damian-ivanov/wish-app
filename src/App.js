@@ -30,7 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WishList />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/wish" element={<WishItem />} />
+          <Route path="/wish/:wishId" element={<WishItem />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
