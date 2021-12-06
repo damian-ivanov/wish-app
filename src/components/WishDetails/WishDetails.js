@@ -2,12 +2,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
+import './WishDetails.css';
 
 export default function WishDetails() {
 
     const auth = getAuth();
     const navigate = useNavigate();
-    const [wish, setWish] = useState([]);
+    const [wish, setWish] = useState({likesGivenBy:[]});
     const { wishId } = useParams();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export default function WishDetails() {
 
         dataService.addLike(wishId, auth.currentUser.email)
             .then(() => {
-                navigate(`/wish/${wish.id}`);
+                setWish({reload: true})
             });
     };
 
@@ -41,14 +42,6 @@ export default function WishDetails() {
 
         navigate(`/edit/${wish.id}`);
     };
-
-    const likez = wish.likesGivenBy;
-
-    if (likez) {
-        likez.forEach(element => {
-            return console.log(element);
-        });
-    }
 
     return (
         <div className="wishItem">
@@ -67,11 +60,7 @@ export default function WishDetails() {
                 <p>Submitted on: {wish.date}</p>
                 <p>Votes given by: </p>
                 <ul>
-                    
-                    {/* <li>{likez}</li> */}
-                    {likez ? likez.forEach(element => {
-                        <li key={element}>{element}</li>
-                    }) : ""}
+                    {wish.likesGivenBy.map(x => <li key={x}>{x}</li>)}                  
                 </ul>
             </div>
         </div>
