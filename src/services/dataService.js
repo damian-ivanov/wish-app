@@ -14,7 +14,9 @@ export const getOne = async (wishId) => {
             title: wish.data().title,
             description: wish.data().description,
             authorId: wish.data().authorId,
-            likes: wish.data().likes.length
+            likes: wish.data().likes.length,
+            date: wish.data().date,
+            likesGivenBy: wish.data().likes
         }
     } else {
         return console.log("No such document!");
@@ -35,7 +37,8 @@ export const getAll = async () => {
                 title: wish.data().title,
                 description: wish.data().description,
                 authorId: wish.data().authorId,
-                likes: wish.data().likes.length
+                likes: wish.data().likes.length,
+                date: wish.data().date
             })
     });
 
@@ -65,13 +68,15 @@ export const addLike = async (wishId, userEmail) => {
 export const createWish = async (title, description, authorId) => {
 
     const db = getFirestore();
+    var today = new Date().toLocaleDateString('us-US');
 
     try {
         const docRef = await addDoc(collection(db, "wishes"), {
             title: title,
             description: description,
             authorId: authorId,
-            likes: []
+            likes: [],
+            date: today
         });
 
         console.log("Document written with ID: ", docRef.id);

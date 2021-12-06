@@ -42,6 +42,13 @@ export default function WishDetails() {
         navigate(`/edit/${wish.id}`);
     };
 
+    const likez = wish.likesGivenBy;
+
+    if (likez) {
+        likez.forEach(element => {
+            return console.log(element);
+        });
+    }
 
     return (
         <div className="wishItem">
@@ -57,8 +64,15 @@ export default function WishDetails() {
 
             <div className="statistics">
                 <h3 className="wishItem">Statistics:</h3>
-                <p>Submitted on: </p>
+                <p>Submitted on: {wish.date}</p>
                 <p>Votes given by: </p>
+                <ul>
+                    
+                    {/* <li>{likez}</li> */}
+                    {likez ? likez.forEach(element => {
+                        <li key={element}>{element}</li>
+                    }) : ""}
+                </ul>
             </div>
         </div>
     )
