@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
 
 export default function Create() {
+
+    const auth = getAuth();
 
     const navigate = useNavigate();
     const submitHandler = async (e) => {
@@ -12,7 +15,7 @@ export default function Create() {
 
         console.log(title, description, Boolean(isGood));
 
-        dataService.createWish(title, description, "testMe")
+        dataService.createWish(title, description, auth.currentUser.email)
         .then(() => {
             navigate('/');
         });

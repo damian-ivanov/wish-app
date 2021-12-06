@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import Create from './components/Create/Create';
 import WishList from './components/WishList/WishList';
@@ -10,6 +9,7 @@ import Register from './components/Registration/Register';
 import Logout from './components/Logout/Logout';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
+import './App.css';
 
 function App() {
 

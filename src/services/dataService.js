@@ -1,5 +1,5 @@
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, getDoc, deleteDoc, doc, addDoc } from "firebase/firestore";
+import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
 export const getOne = async (wishId) => {
 
@@ -13,7 +13,8 @@ export const getOne = async (wishId) => {
             id: wish.id,
             title: wish.data().title,
             description: wish.data().description,
-            authorId: wish.data().authorId
+            authorId: wish.data().authorId,
+            likes: wish.data().likes.length
         }
     } else {
         return console.log("No such document!");
@@ -33,7 +34,8 @@ export const getAll = async () => {
                 id: wish.id,
                 title: wish.data().title,
                 description: wish.data().description,
-                authorId: wish.data().authorId
+                authorId: wish.data().authorId,
+                likes: wish.data().likes.length
             })
     });
 
@@ -48,6 +50,18 @@ export const deleteWish = async (wishId) => {
     return true;
 };
 
+export const addLike = async (wishId, userEmail) => {
+
+    const db = getFirestore();
+    const query = doc(db, "wishes", wishId);
+
+    await updateDoc(query, {
+        likes: arrayUnion(userEmail)
+    });
+
+    return true;
+};
+
 export const createWish = async (title, description, authorId ) => {
 
     const db = getFirestore();
@@ -56,7 +70,8 @@ export const createWish = async (title, description, authorId ) => {
         const docRef = await addDoc(collection(db, "wishes"), {
             title: title,
             description: description,
-            authorId: authorId
+            authorId: authorId,
+            likes: []
         });
       
         console.log("Document written with ID: ", docRef.id);

@@ -1,9 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
 
 export default function WishDetails() {
 
+    const auth = getAuth();
     const navigate = useNavigate();
     const [wish, setWish] = useState([]);
     const { wishId } = useParams();
@@ -24,14 +26,23 @@ export default function WishDetails() {
             });
     };
 
+    const addLikeHandler = (e) => {
+        e.preventDefault();
+
+        dataService.addLike(wishId, auth.currentUser.email)
+            .then(() => {
+                navigate('/');
+            });
+    };
+
     return (
         <div className="wishItem">
             <div className="wishCard">
                 <h4>{wish.title}</h4>
                 <p className="text">{wish.description}</p>
                 <p>Submitted by: {wish.authorId}</p>
-                {/* <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">42</p></p> */}
-                <button type="button">+ 1</button>
+                <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
+                <button type="button" onClick={addLikeHandler}>+ 1</button>
                 <button type="button">Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>
             </div>
