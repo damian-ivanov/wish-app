@@ -9,6 +9,7 @@ import Register from './components/Registration/Register';
 import Logout from './components/Logout/Logout';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
+import Edit from './components/Edit/Edit';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WishList />} />
           <Route path="/create" element={<Create />} />
+          <Route path="/edit/:wishId" element={<Edit />} />
           <Route path="/wish/:wishId" element={<WishDetails />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />

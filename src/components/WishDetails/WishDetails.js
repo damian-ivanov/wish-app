@@ -31,9 +31,17 @@ export default function WishDetails() {
 
         dataService.addLike(wishId, auth.currentUser.email)
             .then(() => {
-                navigate('/');
+                navigate(`/wish/${wish.id}`);
             });
     };
+
+
+    const editHandler = (e) => {
+        e.preventDefault();
+
+        navigate(`/edit/${wish.id}`);
+    };
+
 
     return (
         <div className="wishItem">
@@ -43,7 +51,7 @@ export default function WishDetails() {
                 <p>Submitted by: {wish.authorId}</p>
                 <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
                 <button type="button" onClick={addLikeHandler}>+ 1</button>
-                <button type="button">Edit</button>
+                <button type="button" onClick={editHandler}>Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>
             </div>
 

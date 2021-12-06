@@ -62,10 +62,10 @@ export const addLike = async (wishId, userEmail) => {
     return true;
 };
 
-export const createWish = async (title, description, authorId ) => {
+export const createWish = async (title, description, authorId) => {
 
     const db = getFirestore();
-    
+
     try {
         const docRef = await addDoc(collection(db, "wishes"), {
             title: title,
@@ -73,12 +73,26 @@ export const createWish = async (title, description, authorId ) => {
             authorId: authorId,
             likes: []
         });
-      
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
 
+        console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+        console.error("Error adding document: ", e);
+    }
+
+
+    return true;
+};
+
+export const editWish = async (title, description, wishId) => {
+
+    const db = getFirestore();
+
+    const query = doc(db, "wishes", wishId);
+
+    await updateDoc(query, {
+        title: title,
+        description: description,
+    });
 
     return true;
 };
