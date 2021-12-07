@@ -1,11 +1,9 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
 
 export default function Edit() {
 
-    const auth = getAuth();
     const navigate = useNavigate();
     const [wish, setWish] = useState([]);
     const { wishId } = useParams();
@@ -15,7 +13,7 @@ export default function Edit() {
             .then(result => {
                 setWish(result);
             })
-    }, []);
+    }, [wishId]);
 
     const submitHandler = async (e) => {
         e.preventDefault();

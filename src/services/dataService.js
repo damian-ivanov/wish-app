@@ -50,6 +50,7 @@ export const deleteWish = async (wishId) => {
     const db = getFirestore();
     await deleteDoc(doc(db, "wishes", wishId));
 
+    
     return true;
 };
 
@@ -62,7 +63,9 @@ export const addLike = async (wishId, userEmail) => {
         likes: arrayUnion(userEmail)
     });
 
-    return true;
+
+
+    return getOne(wishId);
 };
 
 export const createWish = async (title, description, authorId) => {

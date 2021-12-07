@@ -16,7 +16,7 @@ export default function WishDetails() {
             .then(result => {
                 setWish(result);
             })
-    }, []);
+    }, [wishId]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -31,11 +31,8 @@ export default function WishDetails() {
         e.preventDefault();
 
         dataService.addLike(wishId, auth.currentUser.email)
-            .then(() => {
-                setWish({reload: true})
-            });
+        .then((result) => setWish({ ...result }))        
     };
-
 
     const editHandler = (e) => {
         e.preventDefault();
