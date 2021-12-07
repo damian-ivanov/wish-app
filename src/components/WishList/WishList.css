@@ -26,6 +26,14 @@ ul li.wishCard {
     color: white;
 }
 
+ul li.wishCard a {
+    color: white;
+}
+
+ul li.wishCard a:hover {
+    color: gray;
+}
+
 h4{
     border-bottom: 1px white dashed;
 }

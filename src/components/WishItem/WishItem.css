@@ -74,3 +74,8 @@ button {
 .statistics {
     width: 30%;
 }
+
+.details.wishCard a {
+    color: white !important;
+    font-weight: bold;
+}

@@ -1,5 +1,5 @@
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUnion, arrayRemove, query, where } from "firebase/firestore";
 
 export const getOne = async (wishId) => {
 
@@ -23,14 +23,23 @@ export const getOne = async (wishId) => {
     }
 };
 
-export const getAll = async () => {
+export const getAll = async (userEmail) => {
 
     const db = getFirestore();
-    const query = await getDocs(collection(db, "wishes"));
+    let q;
+    let data;
+
+    if (userEmail) {
+        q = query(collection(db, "wishes"), where("authorId", "==", userEmail));
+        data = await getDocs(q);
+    } else {
+        data = await getDocs(collection(db, "wishes"));
+    }
+    
 
     var result = [];
 
-    query.forEach(wish => {
+    data.forEach(wish => {
         result.push(
             {
                 id: wish.id,

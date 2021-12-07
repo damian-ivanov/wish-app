@@ -49,13 +49,13 @@ h4{
     width: 30%;
 }
 
-.centered {
+.centeredImage {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: bold;
-    font-size: calc(11px + 2vmin);
+    font-size: calc(20px + 2vmin);
   }
 
 button {

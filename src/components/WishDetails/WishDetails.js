@@ -54,7 +54,7 @@ export default function WishDetails() {
                 <h4>{wish.title}</h4>
                 <p className="text">{wish.description}</p>
                 <p>Submitted by: {wish.authorId}</p>
-                <p className="votes"><img src={heart} alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
+                <div className="votes"><img src={heart} alt="heart_details"></img><div className="centeredImage">{wish.likes}</div></div>
                
                 {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : 
                 (wish.likesGivenBy.includes(auth.currentUser.email) ? 

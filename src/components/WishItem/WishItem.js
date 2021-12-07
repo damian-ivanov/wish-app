@@ -11,8 +11,7 @@ const WishItem  = ({
             <p className="text">{wish.description}</p>
             <p>Submitted by: {wish.authorId}</p>
             <p>Date: {wish.date}</p>
-            <p className="votes"><img src="heart.png" alt="heart"></img><div className="centered">{wish.likes}</div></p>
-            <button type="button">+ 1</button>
+            <div className="votes"><img src="heart.png" alt="heart"></img><div className="centered">{wish.likes}</div></div>
             <Link className="details" to={`/wish/${wish.id}`}>Details</Link>
         </li>
       
