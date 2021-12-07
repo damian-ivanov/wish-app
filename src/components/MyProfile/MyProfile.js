@@ -5,15 +5,17 @@ import WishItem from '../WishItem/WishItem';
 
 export default function MyProfile () {
     
-    const auth = getAuth();
     const [wishes, setWishes] = useState([]);
+    const auth = getAuth();
+    let email = auth.currentUser.email != null ? auth.currentUser.email : "";
+    
 
     useEffect(() => {
-        dataService.getAll(auth.currentUser.email)
+        dataService.getAll(email)
             .then(result => {
                 setWishes(result);
             })
-    }, [auth.currentUser.email]);
+    }, [email]);
 
     return (
         <>

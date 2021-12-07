@@ -56,10 +56,10 @@ export default function WishDetails() {
                 <p>Submitted by: {wish.authorId}</p>
                 <div className="votes"><img src={heart} alt="heart_details"></img><div className="centeredImage">{wish.likes}</div></div>
                
-                {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : 
+                {!auth.currentUser ? <h3><Link to={`/login/`}>Log in to vote</Link></h3> : 
                 (wish.likesGivenBy.includes(auth.currentUser.email) ? 
                 <><h3>You voted <span style={{cursor: "pointer", fontSize: "16px"}} onClick={removeLikeHandler}>(revoke)</span></h3></> : 
-                <button type="button" onClick={addLikeHandler}>+ 1</button> ) }
+                <h3 style={{cursor: "pointer"}} onClick={addLikeHandler}>Vote!</h3> ) }
                 
                 <button type="button" onClick={editHandler}>Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>

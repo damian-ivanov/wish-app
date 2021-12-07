@@ -14,9 +14,26 @@ const WishList = () => {
             })
     }, []);
 
+    console.log("Begin" + wishes);
+    
+    const orderByLikes = (e) => {
+        e.preventDefault();
+        
+        const sorted = wishes.sort((a, b) => b.likes - a.likes);
+ 
+        (async function () {
+            //const sorted = wishes.sort((a, b) => b.likes - a.likes);
+            await setWishes([...sorted]);
+          })();
+
+          console.log("End" + wishes);
+               
+    };
+
     return (
         <>
             <h3>All submitted wishes:</h3>
+            <div>Order by: <span style={{cursor: "pointer"}} onClick={orderByLikes}>Most likes</span></div>
             {wishes.length > 0
                 ? (
 
