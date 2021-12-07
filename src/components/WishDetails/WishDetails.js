@@ -34,6 +34,13 @@ export default function WishDetails() {
         .then((result) => setWish({ ...result }))        
     };
 
+    const removeLikeHandler = (e) => {
+        e.preventDefault();
+
+        dataService.removeLike(wishId, auth.currentUser.email)
+        .then((result) => setWish({ ...result }))        
+    };
+
     const editHandler = (e) => {
         e.preventDefault();
 
@@ -48,7 +55,11 @@ export default function WishDetails() {
                 <p>Submitted by: {wish.authorId}</p>
                 <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
                
-                {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : (wish.likesGivenBy.includes(auth.currentUser.email) ? <h3>You voted</h3> : <button type="button" onClick={addLikeHandler}>+ 1</button> ) }
+                {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : 
+                (wish.likesGivenBy.includes(auth.currentUser.email) ? 
+                <><h3>You voted</h3><h5 style={{cursor: "pointer"}} onClick={removeLikeHandler}>revoke</h5></> : 
+                <button type="button" onClick={addLikeHandler}>+ 1</button> ) }
+                
                 <button type="button" onClick={editHandler}>Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>
             

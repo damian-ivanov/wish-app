@@ -1,5 +1,5 @@
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 
 export const getOne = async (wishId) => {
 
@@ -63,7 +63,17 @@ export const addLike = async (wishId, userEmail) => {
         likes: arrayUnion(userEmail)
     });
 
+    return getOne(wishId);
+};
 
+export const removeLike = async (wishId, userEmail) => {
+
+    const db = getFirestore();
+    const query = doc(db, "wishes", wishId);
+
+    await updateDoc(query, {
+        likes: arrayRemove(userEmail)
+    });
 
     return getOne(wishId);
 };
