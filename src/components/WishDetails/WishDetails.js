@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
@@ -47,9 +47,11 @@ export default function WishDetails() {
                 <p className="text">{wish.description}</p>
                 <p>Submitted by: {wish.authorId}</p>
                 <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
-                <button type="button" onClick={addLikeHandler}>+ 1</button>
+               
+                {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : (wish.likesGivenBy.includes(auth.currentUser.email) ? <h3>You voted</h3> : <button type="button" onClick={addLikeHandler}>+ 1</button> ) }
                 <button type="button" onClick={editHandler}>Edit</button>
                 <button type="button" onClick={deleteHandler}>Delete</button>
+            
             </div>
 
             <div className="statistics">
