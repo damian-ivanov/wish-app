@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
 import './WishDetails.css';
+import heart from '../../../src/heart.png'
 
 export default function WishDetails() {
 
@@ -53,11 +54,11 @@ export default function WishDetails() {
                 <h4>{wish.title}</h4>
                 <p className="text">{wish.description}</p>
                 <p>Submitted by: {wish.authorId}</p>
-                <p className="votes"><img src="heart.png" alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
+                <p className="votes"><img src={heart} alt="heart_details"></img><p className="centered">{wish.likes}</p></p>
                
                 {!auth.currentUser ? <Link to={`/login/`}>Log in to vote</Link> : 
                 (wish.likesGivenBy.includes(auth.currentUser.email) ? 
-                <><h3>You voted</h3><h5 style={{cursor: "pointer"}} onClick={removeLikeHandler}>revoke</h5></> : 
+                <><h3>You voted <span style={{cursor: "pointer", fontSize: "16px"}} onClick={removeLikeHandler}>(revoke)</span></h3></> : 
                 <button type="button" onClick={addLikeHandler}>+ 1</button> ) }
                 
                 <button type="button" onClick={editHandler}>Edit</button>

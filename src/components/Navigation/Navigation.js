@@ -29,7 +29,7 @@ const Navigation = () => {
 
   let userNavigation = (
     <>
-      <li>My profile</li>
+      <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/myprofile'}>MyProfile</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/create'}>New wish</NavLink></li>
       <li><NavLink to={'/'} onClick={() => {
         signOut(auth)

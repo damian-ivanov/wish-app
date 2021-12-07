@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
 import Logout from './components/Logout/Logout';
+import MyProfile from './components/MyProfile/MyProfile';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
 import Edit from './components/Edit/Edit';
@@ -36,6 +37,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/myprofile" element={<MyProfile />} />
         </Routes>
       </main>
       <footer>
