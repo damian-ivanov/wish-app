@@ -61,9 +61,11 @@ export default function WishDetails() {
                 <><h3>You voted <span style={{cursor: "pointer", fontSize: "16px"}} onClick={removeLikeHandler}>(revoke)</span></h3></> : 
                 <h3 style={{cursor: "pointer"}} onClick={addLikeHandler}>Vote!</h3> ) }
                 
-                <button type="button" onClick={editHandler}>Edit</button>
-                <button type="button" onClick={deleteHandler}>Delete</button>
-            
+                {auth.currentUser && auth.currentUser.email === wish.authorId ? 
+                <><button type="button" onClick={editHandler}>Edit</button>
+                <button type="button" onClick={deleteHandler}>Delete</button></> : 
+                <></>}
+                
             </div>
 
             <div className="statistics">
