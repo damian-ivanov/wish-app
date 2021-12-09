@@ -3,7 +3,10 @@ import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUn
 
 export const getOne = async (wishId) => {
 
+    
+
     const db = getFirestore();
+
     const query = doc(db, "wishes", wishId);
 
     const wish = await getDoc(query);
