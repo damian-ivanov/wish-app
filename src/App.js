@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet, Navigate, Location, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import Create from './components/Create/Create';
 import WishList from './components/WishList/WishList';
@@ -10,6 +10,7 @@ import Logout from './components/Logout/Logout';
 import MyProfile from './components/MyProfile/MyProfile';
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
+import { getAuth } from "firebase/auth";
 import Edit from './components/Edit/Edit';
 import './App.css';
 
@@ -17,6 +18,21 @@ function App() {
 
   initializeApp(firebaseConfig);
 
+  function RequireAuth() {
+    const auth = getAuth();
+    let location = useLocation();
+    console.log(location)
+  
+    if (!auth.currentUser) {
+      // Redirect them to the /login page, but save the current location they were
+      // trying to go to when they were redirected. This allows us to send them
+      // along to that page after they login, which is a nicer user experience
+      // than dropping them off on the home page.
+      return <Navigate to="/login" state={{ from: location }} />;
+    }
+  
+    return <Outlet />;
+  }
 
   return (
     <div className="App">
@@ -31,13 +47,18 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<WishList />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/edit/:wishId" element={<Edit />} />
           <Route path="/wish/:wishId" element={<WishDetails />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/myprofile" element={<MyProfile />} />
+          
+
+          <Route element={<RequireAuth />}>
+            <Route path="/myprofile" element={<MyProfile />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/edit/:wishId" element={<Edit />} />
+          </Route>
+
         </Routes>
       </main>
       <footer>
