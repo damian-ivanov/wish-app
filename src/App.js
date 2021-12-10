@@ -23,7 +23,7 @@ function App() {
   function RequireAuth() {
     const auth = getAuth();
     let location = useLocation();
-  
+
     if (!auth.currentUser) {
       return <Navigate to="/login" state={{ prevPath: location.pathname }} />;
     }
@@ -47,7 +47,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          
+
 
           <Route element={<RequireAuth />}>
             <Route path="/myprofile" element={<MyProfile />} />

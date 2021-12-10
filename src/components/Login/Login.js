@@ -1,12 +1,12 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 export default function Login() {
 
     const navigate = useNavigate();
     const location = useLocation();
 
-    const state = location.state 
+    const state = location.state
     const from = state ? state.prevPath : '/';
 
     const onLoginHandler = (e) => {
@@ -27,9 +27,11 @@ export default function Login() {
             });
     }
 
+
     return (
         <>
             <h1>Login</h1>
+            <Link to={`/register`} state={{ prevPath: from }}><button>...or register</button></Link>
             <form id="login-form" onSubmit={onLoginHandler} method="POST">
                 <div>
                     <input type="email" placeholder="Email..." name="email" />

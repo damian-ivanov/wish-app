@@ -1,9 +1,13 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Register() {
     
     const navigate = useNavigate();
+    const location = useLocation();
+    const state = location.state
+    const from = state ? state.prevPath : '/';
+
     const onRegisterHandler = (e) => {
         e.preventDefault();
 
@@ -16,7 +20,7 @@ export default function Register() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user.uid);
-                navigate('/');
+                navigate(from);
             })
             .catch((error) => {
                 const errorMessage = error.message;
