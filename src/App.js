@@ -1,4 +1,5 @@
-import { Routes, Route, Outlet, Navigate, Location, useLocation } from 'react-router-dom';
+import { Routes, Route, Outlet, Navigate, useLocation } from 'react-router-dom';
+
 import Navigation from './components/Navigation/Navigation';
 import Create from './components/Create/Create';
 import WishList from './components/WishList/WishList';
@@ -8,6 +9,7 @@ import Login from './components/Login/Login';
 import Register from './components/Registration/Register';
 import Logout from './components/Logout/Logout';
 import MyProfile from './components/MyProfile/MyProfile';
+
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
 import { getAuth } from "firebase/auth";
@@ -21,16 +23,10 @@ function App() {
   function RequireAuth() {
     const auth = getAuth();
     let location = useLocation();
-    console.log(location)
   
     if (!auth.currentUser) {
-      // Redirect them to the /login page, but save the current location they were
-      // trying to go to when they were redirected. This allows us to send them
-      // along to that page after they login, which is a nicer user experience
-      // than dropping them off on the home page.
-      return <Navigate to="/login" state={{ from: location }} />;
+      return <Navigate to="/login" state={{ prevPath: location.pathname }} />;
     }
-  
     return <Outlet />;
   }
 

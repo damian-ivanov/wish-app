@@ -1,12 +1,14 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
-
-//import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Login() {
-    
+
     const navigate = useNavigate();
-    
+    const location = useLocation();
+
+    const state = location.state 
+    const from = state ? state.prevPath : '/';
+
     const onLoginHandler = (e) => {
         e.preventDefault();
 
@@ -17,7 +19,7 @@ export default function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 console.log("Successful log in!")
-                navigate('/');
+                navigate(from);
             })
             .catch((error) => {
                 const errorMessage = error.message;
