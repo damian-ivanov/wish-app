@@ -22,6 +22,7 @@ export default function WishDetails() {
             .then(result => {
                 setWish(result);
                 setIsReady(true);
+                window.scrollTo(0, window.innerHeight / 2);
             })
     }, [wishId]);
 
