@@ -2,15 +2,18 @@ import './WishList.css';
 import { useEffect, useState } from "react";
 import * as dataService from '../../services/dataService';
 import WishItem from '../WishItem/WishItem';
+import loader from '../../../src/loader.gif'
 
 const WishList = () => {
 
     const [wishes, setWishes] = useState([]);
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         dataService.getAll()
             .then(result => {
                 setWishes(result);
+                setIsReady(true);
             })
     }, []);
 
@@ -43,6 +46,10 @@ const WishList = () => {
         })();
     };
 
+    if (isReady === false) {
+        return <img src={loader} alt='loading'></img>
+    }
+    
     return (
         <>
             <h3>All submitted wishes:</h3>

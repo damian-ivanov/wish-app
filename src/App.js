@@ -11,11 +11,12 @@ import Register from './components/Registration/Register';
 import Logout from './components/Logout/Logout';
 import MyProfile from './components/MyProfile/MyProfile';
 import NotFound from './components/NotFound/NotFound';
+import Edit from './components/Edit/Edit';
 
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
 import { getAuth } from "firebase/auth";
-import Edit from './components/Edit/Edit';
+
 import './App.css';
 
 function App() {
