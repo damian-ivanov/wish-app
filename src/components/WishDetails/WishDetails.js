@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
@@ -11,6 +11,7 @@ export default function WishDetails() {
     const navigate = useNavigate();
     const [wish, setWish] = useState({likesGivenBy:[]});
     const { wishId } = useParams();
+    var location = useLocation();
 
     useEffect(() => {
         dataService.getOne(wishId)
@@ -48,6 +49,7 @@ export default function WishDetails() {
         navigate(`/edit/${wish.id}`);
     };
 
+
     return (
         <div className="wishItem">
             <div className="wishCard">
@@ -56,7 +58,7 @@ export default function WishDetails() {
                 <p>Submitted by: {wish.authorId}</p>
                 <div className="votes"><img src={heart} alt="heart_details"></img><div className="centeredImage">{wish.likes}</div></div>
                
-                {!auth.currentUser ? <h3><Link to={`/login/`}>Log in to vote</Link></h3> : 
+                {!auth.currentUser ? <h3><Link to={`/login`} state={{ prevPath: location.pathname }}>Log in to vote</Link></h3> : 
                 (wish.likesGivenBy.includes(auth.currentUser.email) ? 
                 <><h3>You voted <span style={{cursor: "pointer", fontSize: "16px"}} onClick={removeLikeHandler}>(revoke)</span></h3></> : 
                 <h3 style={{cursor: "pointer"}} onClick={addLikeHandler}>Vote!</h3> ) }

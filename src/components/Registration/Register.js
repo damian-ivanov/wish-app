@@ -35,10 +35,10 @@ export default function Register() {
 
             <form id="register-form" onSubmit={onRegisterHandler} method="POST">
                 <div>
-                    <input type="email" placeholder="Email..." name="email" />
+                    <input type="email" required placeholder="Email..." name="email" />
                 </div>
                 <div>
-                    <input type="password" placeholder="Password" name="password" />
+                    <input type="password" required placeholder="Password" name="password" />
                 </div>
                 {/* <div>
                     <input type="password" placeholder="Re-password" name="repassword" />
