@@ -12,7 +12,7 @@ export default function WishDetails() {
     const [wish, setWish] = useState({likesGivenBy:[]});
     const { wishId } = useParams();
     var location = useLocation();
-
+      
     useEffect(() => {
         dataService.getOne(wishId)
             .then(result => {
@@ -45,12 +45,14 @@ export default function WishDetails() {
 
     const editHandler = (e) => {
         e.preventDefault();
-
         navigate(`/edit/${wish.id}`);
     };
 
 
     return (
+        wish.id === "0" ?
+        <h1>No wish with this ID found!</h1> :
+        <>
         <div className="wishItem">
             <div className="wishCard">
                 <h4>{wish.title}</h4>
@@ -79,5 +81,7 @@ export default function WishDetails() {
                 </ul>
             </div>
         </div>
+        </>
+        
     )
 }

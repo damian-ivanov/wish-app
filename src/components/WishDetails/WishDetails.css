@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
 
+h1 {
+    font-family: 'Mountains of Christmas';
+}
 
 .wishItem {
     display: flex;

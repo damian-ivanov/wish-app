@@ -3,12 +3,8 @@ import { collection, getDocs, getDoc, deleteDoc, doc, addDoc, updateDoc, arrayUn
 
 export const getOne = async (wishId) => {
 
-    
-
     const db = getFirestore();
-
     const query = doc(db, "wishes", wishId);
-
     const wish = await getDoc(query);
 
     if (wish.exists()) {
@@ -22,7 +18,7 @@ export const getOne = async (wishId) => {
             likesGivenBy: wish.data().likes
         }
     } else {
-        return console.log("No such document!");
+        return { id: "0"}
     }
 };
 
@@ -38,7 +34,7 @@ export const getAll = async (userEmail) => {
     } else {
         data = await getDocs(collection(db, "wishes"));
     }
-    
+
 
     var result = [];
 
@@ -62,7 +58,7 @@ export const deleteWish = async (wishId) => {
     const db = getFirestore();
     await deleteDoc(doc(db, "wishes", wishId));
 
-    
+
     return true;
 };
 
