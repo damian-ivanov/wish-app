@@ -15,7 +15,15 @@ The purpose of this app is to allow users to share their Christmas wish(es) with
 - create a new wish (add a title, description and a photo)
 - edit their wishes
 - give and revoke their like on other people's wishes
-- log out
+- log out 
+
+## Technology used
+- ReactJS
+- Firebase for authentication
+- Firestore database
+
+
+
 
 # Getting Started with Create React App
 
