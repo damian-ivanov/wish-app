@@ -1,4 +1,21 @@
-# Work in progress...
+# "Wish" app - share your Christmas wish with others"
+
+Note: this is a SPA built for the ReactJS Softuni defence project.
+
+## The idea
+The purpose of this app is to allow users to share their Christmas wish(es) with other people and see how others like it. You have the ability to sort the wishes by date and by count of likes on the front (index) page. In the details page of each wish you can see when it was submitted, how many likes does it have and also the list of users who liked it.
+
+## User experience
+### Not logged in users can
+- open the app and see the list with Christmas wishes of the other people
+- view the details on the wish: it's title, description and photo, the count of likes and also the list of people who gave a like to this wish
+- access the Log in and Registration pages
+
+### Logged users can
+- create a new wish (add a title, description and a photo)
+- edit their wishes
+- give and revoke their like on other people's wishes
+- log out
 
 # Getting Started with Create React App
 
