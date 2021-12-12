@@ -1,27 +1,32 @@
 import { useNavigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
-//import { getFirestore } from "firebase/firestore"
 
 export default function Create() {
 
     const auth = getAuth();
 
-   // const storage = getFirestore();
-
     const navigate = useNavigate();
+
+    var imageUrl;
+
+    const uploadHandler = async (e) => {
+        imageUrl = await dataService.uploadImage(e.target.files[0]);
+        console.log("here is the URL " + imageUrl)
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let { title, description, isGood } = Object.fromEntries(formData);
+        let {title, description, isGood} = Object.fromEntries(formData);
 
         console.log(title, description, Boolean(isGood));
 
-        dataService.createWish(title, description, auth.currentUser.email)
-        .then(() => {
-            navigate('/');
-        });
+        dataService.createWish(title, description, auth.currentUser.email, imageUrl)
+            .then(() => {
+                navigate('/');
+            });
 
     }
 
@@ -33,12 +38,15 @@ export default function Create() {
                     <label htmlFor="title">Wish title</label>
                     <input type="text" name="title" id="title" required minLength={3} maxLength={30} placeholder="example: A new car..." />
                 </div>
-        <br></br>
+                <br></br>
                 <div>
                     <label htmlFor="description">Why you want it?</label>
                     <textarea name="description" id="description" rows="10" cols="35" required minLength={3} maxLength={500} placeholder="example: I want a new car, because..." />
                 </div>
-
+                <div>
+                    <label htmlFor="image">Choose wish image:</label>
+                    <input type="file" id="image" name="image" accept="image/png, image/jpeg" onChange={uploadHandler} />
+                </div>
                 <div>
                     <label htmlFor="isGood">I confirm I was a good boy / girl last year</label>
                     <input type="checkbox" name="isGood" id="isGood" required default="unchecked" />

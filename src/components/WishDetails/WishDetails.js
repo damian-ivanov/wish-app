@@ -65,6 +65,7 @@ export default function WishDetails() {
                 <div className="wishItem">
                     <div className="wishCard">
                         <h4>{wish.title}</h4>
+                        <img src={wish.imageUrl} alt='wish-pic' />
                         <p className="text">{wish.description}</p>
                         <p>Submitted by: {wish.authorId}</p>
                         <div className="votes"><img src={heart} alt="heart_details"></img><div className="centeredImage">{wish.likes}</div></div>
