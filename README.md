@@ -8,7 +8,7 @@ The purpose of this app is to allow users to share their Christmas wish(es) with
 ## User experience
 ### Not logged in users can
 - open the app and see the list with Christmas wishes of the other people
-- view the details on the wish: it's title, description and photo, the count of likes and also the list of people who gave a like to this wish
+- view the details on the wish: it's title, description and photo, date of submission, the email of the user who created it, the count of likes and the list of people who gave a like to this wish
 - access the Log in and Registration pages
 
 ### Logged users can
