@@ -1,21 +1,23 @@
 import {Link} from 'react-router-dom';
-import './WishItem.css';
+import styles from './WishItem.module.css';
 
 const WishItem  = ({
     wish
 }) => {
     return (
 
-        <li className="wishCard">
+        <li className={styles.wishCard}>
             <h4>{wish.title}</h4>
-            <div className='wishImage'>
+            <div className={styles.wishImage}>
             <img src={wish.imageUrl} alt='wish-pic' />
             </div>
-            <p className="text">{wish.description}</p>
+            <p className={styles.text}>{wish.description}</p>
             <p>Submitted by: {wish.authorId}</p>
             <p>Date: {wish.date}</p>
-            <div className="votes"><img src="heart.png" alt="heart"></img><div className="centered">{wish.likes}</div></div>
-            <Link className="details" to={`/wish/${wish.id}`}>Details</Link>
+            <div className={styles.votes}><img src="heart.png" alt="heart"></img>
+            <div className={styles.centered}>{wish.likes}</div>
+            </div>
+            <Link className={styles.details} to={`/wish/${wish.id}`}>Details</Link>
         </li>
       
     )
