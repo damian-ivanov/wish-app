@@ -8,7 +8,9 @@ const WishItem  = ({
 
         <li className="wishCard">
             <h4>{wish.title}</h4>
+            <div className='wishImage'>
             <img src={wish.imageUrl} alt='wish-pic' />
+            </div>
             <p className="text">{wish.description}</p>
             <p>Submitted by: {wish.authorId}</p>
             <p>Date: {wish.date}</p>

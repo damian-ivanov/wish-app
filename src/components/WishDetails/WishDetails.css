@@ -87,3 +87,13 @@ button {
     justify-content: center;
     flex-direction: column;
 }
+
+.wishImageDetails {
+    height: 350px;
+}
+
+.img {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+}
