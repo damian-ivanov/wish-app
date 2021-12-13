@@ -101,12 +101,14 @@ export const uploadImage = async (image) => {
         contentType: 'image/jpeg'
     };
 
+    const number = Math.floor((Math.random() * 1000) + 1);
+
     // Upload file and metadata to the object 'images/mountains.jpg'
-    const storageRef = ref(storage, 'images/' + image.name);
+    const storageRef = ref(storage, 'images/' + number + image.name);
     const uploadTask = uploadBytesResumable(storageRef, image, metadata);
 
     // Listen for state changes, errors, and completion of the upload.
-    await uploadTask.on('state_changed',
+    uploadTask.on('state_changed',
         (snapshot) => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -118,6 +120,8 @@ export const uploadImage = async (image) => {
                 case 'running':
                     console.log('Upload is running');
                     break;
+                default:
+                    console.log();
             }
         },
         (error) => {
@@ -136,6 +140,8 @@ export const uploadImage = async (image) => {
                 case 'storage/unknown':
                     // Unknown error occurred, inspect error.serverResponse
                     break;
+                default:
+                    console.log();
             }
         },
         async () => {
@@ -145,21 +151,15 @@ export const uploadImage = async (image) => {
             });
         })
 
-    console.log("Final " + imageUrl)
-
-    async function mega () {
+    async function mega() {
         await uploadBytesResumable(storageRef, image, metadata);
         imageUrl = getDownloadURL(ref(storage, 'images/' + image.name))
-            
-            console.log("Final v2" + imageUrl)
-            return imageUrl
+
+        return imageUrl
     }
 
     return await mega();
-
 }
-
-
 
 export const createWish = async (title, description, authorId, imageUrl) => {
 

@@ -5,29 +5,24 @@ import * as dataService from '../../services/dataService';
 export default function Create() {
 
     const auth = getAuth();
-
     const navigate = useNavigate();
 
     var imageUrl;
 
     const uploadHandler = async (e) => {
         imageUrl = await dataService.uploadImage(e.target.files[0]);
-        console.log("here is the URL " + imageUrl)
     }
 
     const submitHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let {title, description, isGood} = Object.fromEntries(formData);
-
-        console.log(title, description, Boolean(isGood));
+        let {title, description} = Object.fromEntries(formData);
 
         dataService.createWish(title, description, auth.currentUser.email, imageUrl)
             .then(() => {
                 navigate('/');
             });
-
     }
 
     return (
