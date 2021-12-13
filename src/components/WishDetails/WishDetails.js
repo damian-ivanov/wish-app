@@ -2,7 +2,7 @@ import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
-import './WishDetails.css';
+import styles from './WishDetails.module.css';
 import heart from '../../../src/heart.png';
 import loader from '../../../src/loader.gif'
 
@@ -62,15 +62,15 @@ export default function WishDetails() {
         wish.id === "0" ?
             <h1>No wish with this ID found!</h1> :
             <>
-                <div className="wishItem">
-                    <div className="wishCard">
+                <div className={styles.wishItem}>
+                    <div className={styles.wishCard}>
                         <h4>{wish.title}</h4>
-                        <div className='wishImageDetails'>
+                        <div className={styles.wishImage}>
                         <img src={wish.imageUrl} alt='wish-pic' />
                         </div>
-                        <p className="text">{wish.description}</p>
+                        <p className={styles.text}>{wish.description}</p>
                         <p>Submitted by: {wish.authorId}</p>
-                        <div className="votes"><img src={heart} alt="heart_details"></img><div className="centeredImage">{wish.likes}</div></div>
+                        <div className={styles.votes}><img src={heart} alt="heart_details"></img><div className={styles.centeredImage}>{wish.likes}</div></div>
 
                         {!auth.currentUser ? <h3><Link to={`/login`} state={{ prevPath: location.pathname }}>Log in to vote</Link></h3> :
                             (wish.likesGivenBy.includes(auth.currentUser.email) ?
@@ -84,8 +84,8 @@ export default function WishDetails() {
 
                     </div>
 
-                    <div className="statistics">
-                        <h3 className="wishItem">Statistics:</h3>
+                    <div className={styles.statistics}>
+                        <h3 className={styles.wishItem}>Statistics:</h3>
                         <p>Submitted on: {wish.date}</p>
                         <p>Votes given by: </p>
                         <ul>

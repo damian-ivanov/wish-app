@@ -29,7 +29,7 @@ h3.wishItem {
     border-bottom: 1px solid gray;
 }
 
-h4{
+h4 {
     border-bottom: 1px white dashed;
 }
 
@@ -48,12 +48,12 @@ h4{
 
 .votes {
     position: relative;
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
 }
 
 .votes img {
-    width: 30%;
+    width: 20% !important;
 }
 
 .centeredImage {
@@ -88,11 +88,11 @@ button {
     flex-direction: column;
 }
 
-.wishImageDetails {
-    height: 350px;
+.wishImage {
+    height: 330px;
 }
 
-.img {
+.wishCard img {
     width: 95%;
     height: 95%;
     object-fit: cover;
