@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
 
+@media only screen and (max-width: 800px) {
+    ul li.wishCard {
+        width: 100% !important;
+    }
+  }
+
 .wishCard {
     margin-top: 20px;
     width: 30%;
@@ -8,7 +14,6 @@
     background: darkseagreen;
     color: white;
 }
-
 
 h4 {
     border-bottom: 1px white dashed;
@@ -46,6 +51,10 @@ h4 {
 .details {
     color: white !important;
     font-weight: bold;
+}
+
+ul li.wishCard a:hover {
+    color: gray !important;
 }
 
 .wishImage {

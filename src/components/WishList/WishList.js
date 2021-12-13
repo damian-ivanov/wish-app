@@ -1,8 +1,8 @@
-import './WishList.css';
 import { useEffect, useState } from "react";
 import * as dataService from '../../services/dataService';
 import WishItem from '../WishItem/WishItem';
-import loader from '../../../src/loader.gif'
+import loader from '../../../src/loader.gif';
+import styles from './WishList.module.css';
 
 const WishList = () => {
 
@@ -16,8 +16,6 @@ const WishList = () => {
                 setIsReady(true);
             })
     }, []);
-
-
 
     const sort = (e) => {
         e.preventDefault();
@@ -42,19 +40,19 @@ const WishList = () => {
         }
 
         (async function () {
-            await setWishes([...sorted]);
+            setWishes([...sorted]);
         })();
     };
 
     if (isReady === false) {
         return <img src={loader} alt='loading'></img>
     }
-    
+
     return (
         <>
             <h3>All submitted wishes:</h3>
             <div>Order by: 
-                <button id="mostLikes" style={{ cursor: "pointer" }} onClick={sort}>Most liked</button>
+                <button id="mostLikes" className={styles.button} onClick={sort}>Most liked</button>
                 <button id="leastLikes" style={{ cursor: "pointer" }} onClick={sort}>Least liked</button>
                 <button id="newest" style={{ cursor: "pointer" }} onClick={sort}>Newest</button>
                 <button id="oldest" style={{ cursor: "pointer" }} onClick={sort}>Oldest</button>
@@ -62,11 +60,11 @@ const WishList = () => {
             {wishes.length > 0
                 ? (
 
-                    <ul className="wishList">
+                    <ul className={styles.wishList}>
                         {wishes.map(x => <WishItem key={x.id} wish={x} />)}
                     </ul>
                 )
-                : <p className="no-wishes">No wishes in the database!</p>
+                : <h3>No wishes in the database!</h3>
             }
         </>
     )
