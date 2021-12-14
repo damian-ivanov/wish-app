@@ -3,7 +3,7 @@ ul.wishList {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    font-size: calc(9px + 2vmin);
+    font-size: calc(8px + 2vmin);
     width: 80%;
     margin: 0 auto;
 }
@@ -17,25 +17,7 @@ ul li.wishCard {
     color: white;
 }
 
-button {
-    border: none;
-    color: gray;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 15px;
-    font-family: 'Mountains of Christmas';
-  }
-
 button:first-child {
     margin-left: 10px;
 }
   
-button:hover {
-    background-color: gray;
-    color: white;
-}

@@ -21,9 +21,9 @@ export default function Login() {
                 console.log("Successful log in!")
                 navigate(from);
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage)
+            .catch(() => {
+                document.getElementById('message').style.color = 'yellow';
+                document.getElementById('message').innerHTML = 'Incorrect email or password';
             });
     }
 
@@ -32,14 +32,18 @@ export default function Login() {
         <>
             <h1>Login</h1>
             <Link to={`/register`} state={{ prevPath: from }}><button>...or register</button></Link>
-            <form id="login-form" onSubmit={onLoginHandler} method="POST">
-                <div>
+            <form className="form" onSubmit={onLoginHandler} method="POST">
+                <div className="formField">
+                    <label htmlFor="email">Email:</label>
                     <input type="email" placeholder="Email..." name="email" />
                 </div>
-                <div>
+
+                <div className="formField">
+                    <label htmlFor="password">Password:</label>
                     <input type="password" placeholder="Password" name="password" />
                 </div>
-                <div>
+                <span id='message'></span>
+                <div className="formButton">
                     <button>Login</button>
                 </div>
             </form>
