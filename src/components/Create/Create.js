@@ -11,6 +11,7 @@ export default function Create() {
 
     const uploadHandler = async (e) => {
         imageUrl = await dataService.uploadImage(e.target.files[0]);
+        console.log("IMAGE: " + imageUrl)
     }
 
     const submitHandler = async (e) => {
@@ -27,30 +28,34 @@ export default function Create() {
 
     return (
         <>
-            <h3>Create new wish</h3>
-            <form method="POST" onSubmit={submitHandler}>
-                <div>
-                    <label htmlFor="title">Wish title</label>
+            <h1>Create new wish</h1>
+            <form className="form" method="POST" onSubmit={submitHandler}>
+                <div className="formField">
+                    <label htmlFor="title">Wish title:</label>
                     <input type="text" name="title" id="title" required minLength={3} maxLength={30} placeholder="example: A new car..." />
                 </div>
-                <br></br>
-                <div>
+               
+                <div className="formField">
                     <label htmlFor="description">Why you want it?</label>
                     <textarea name="description" id="description" rows="10" cols="35" required minLength={3} maxLength={500} placeholder="example: I want a new car, because..." />
                 </div>
-                <div>
+
+                <div className="formField">
                     <label htmlFor="image">Choose wish image:</label>
                     <input type="file" id="image" name="image" accept="image/png, image/jpeg" onChange={uploadHandler} />
                 </div>
-                <div>
+
+                <div className="formField">
                     <label htmlFor="isGood">I confirm I was a good boy / girl last year</label>
                     <input type="checkbox" name="isGood" id="isGood" required default="unchecked" />
                 </div>
 
-                <div>
-                    <input type="submit" value="Submit" />
+                <div className="formButton">
+                    <button>Create</button>
                 </div>
             </form>
         </>
+
+        
     )
 }

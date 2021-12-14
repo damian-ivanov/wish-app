@@ -153,7 +153,7 @@ export const uploadImage = async (image) => {
 
     async function mega() {
         await uploadBytesResumable(storageRef, image, metadata);
-        imageUrl = getDownloadURL(ref(storage, 'images/' + image.name))
+        imageUrl = getDownloadURL(ref(storage, 'images/' + number + image.name))
 
         return imageUrl
     }

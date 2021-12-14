@@ -16,7 +16,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(3px + 2vmin);
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 15px;
@@ -55,6 +55,19 @@ button:hover {
   padding: 5px;
 }
 
+.formField #image{
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
 .formButton {
   margin-top: 25px;
+}
+
+.formField #description {
+  border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px;
 }
