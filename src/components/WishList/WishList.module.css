@@ -1,15 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
-
-h3 {
-    font-family: 'Mountains of Christmas';
-}
-
 ul.wishList {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    font-family: 'Mountains of Christmas';
     font-size: calc(9px + 2vmin);
     width: 80%;
     margin: 0 auto;
@@ -35,6 +28,7 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 15px;
+    font-family: 'Mountains of Christmas';
   }
 
 button:first-child {
