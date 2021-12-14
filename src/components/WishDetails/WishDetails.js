@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import * as dataService from '../../services/dataService';
 import styles from './WishDetails.module.css';
 import heart from '../../../src/heart.png';
-import loader from '../../../src/loader.gif'
+import loader from '../../../src/loader.gif';
 
 export default function WishDetails() {
 

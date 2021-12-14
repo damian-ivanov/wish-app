@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
+import snowflake from '../../../src/snowflake.png';
 
 const Navigation = () => {
 
@@ -32,7 +33,8 @@ const Navigation = () => {
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/myprofile'}>MyProfile</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/create'}>New wish</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/logout'}>Log out</NavLink></li>
-      <li><img src="snowflake.png" alt="snowflake"/> Welcome, {userEmail}</li>
+      <li><img src={snowflake} alt="snowflake"/></li>
+      <li>Welcome, {userEmail}</li>
     </>
   )
 
