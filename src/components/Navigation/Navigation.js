@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './Navigation.css';
+import styles from './Navigation.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useState, useEffect } from 'react';
 
@@ -22,15 +22,15 @@ const Navigation = () => {
 
   let guestNavigation = (
     <>
-      <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/login'}>Log in</NavLink></li>
-      <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/register'}>Register</NavLink></li>
+      <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/login'}>Log in</NavLink></li>
+      <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/register'}>Register</NavLink></li>
     </>
   )
 
   let userNavigation = (
     <>
-      <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/myprofile'}>MyProfile</NavLink></li>
-      <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/create'}>New wish</NavLink></li>
+      <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/myprofile'}>MyProfile</NavLink></li>
+      <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/create'}>New wish</NavLink></li>
       <li><NavLink to={'/'} onClick={() => {
         signOut(auth)
           .then(() => {
@@ -50,7 +50,7 @@ const Navigation = () => {
 
     < nav >
       <ul>
-        <li><NavLink className={({ isActive }) => isActive ? "clicked" : ""} to={'/'}>Index</NavLink></li>
+        <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/'}>Index</NavLink></li>
         {userEmail ? userNavigation : guestNavigation}
       </ul>
     </nav >
