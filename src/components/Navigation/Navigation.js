@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
 
 const Navigation = () => {
@@ -31,16 +31,7 @@ const Navigation = () => {
     <>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/myprofile'}>MyProfile</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/create'}>New wish</NavLink></li>
-      <li><NavLink to={'/'} onClick={() => {
-        signOut(auth)
-          .then(() => {
-            console.log("user signed out");
-          })
-          .catch((error) => {
-            console.log("error", error);
-          });
-      }}
-      >Log out</NavLink></li>
+      <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/logout'}>Log out</NavLink></li>
       <li><img src="snowflake.png" alt="snowflake"/> Welcome, {userEmail}</li>
     </>
   )
