@@ -1,12 +1,11 @@
 import notFound from '../../../src/notFound.png'
-import './NotFound.css';
+import styles from './NotFound.module.css';
 
 export default function NotFound() {
 
-   window.scrollTo(0, window.innerHeight / 2);
-
     return (
-        <div className='notFound'>
+
+        <div className={styles.notFound}>
             <img src={notFound} alt="not found" />
         </div>
     )

@@ -4,8 +4,8 @@ import * as dataService from '../../services/dataService';
 import WishItem from '../WishItem/WishItem';
 import styles from '../WishList/WishList.module.css';
 
-export default function MyProfile () {
-    
+export default function MyProfile() {
+
     const [wishes, setWishes] = useState([]);
     const auth = getAuth();
     let email = auth.currentUser.email != null ? auth.currentUser.email : "";
@@ -20,7 +20,7 @@ export default function MyProfile () {
     return (
         <>
             <h3>My wishes:</h3>
-           
+
             {wishes.length > 0
                 ? (
                     <ul className={styles.wishList}>

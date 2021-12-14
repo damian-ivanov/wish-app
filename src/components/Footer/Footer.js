@@ -1,7 +1,7 @@
-import './Footer.css';
+import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <p className="footer">&copy; 2021</p>
+        <div className={styles.footer}>&copy; 2021</div>
     )
 }

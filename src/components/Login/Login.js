@@ -35,12 +35,12 @@ export default function Login() {
             <form className="form" onSubmit={onLoginHandler} method="POST">
                 <div className="formField">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" placeholder="Email..." name="email" />
+                    <input type="email" placeholder="Email..." name="email" required />
                 </div>
 
                 <div className="formField">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" placeholder="Password" name="password" />
+                    <input type="password" placeholder="Password" name="password" required />
                 </div>
                 <span id='message'></span>
                 <div className="formButton">
