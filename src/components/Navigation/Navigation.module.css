@@ -16,6 +16,10 @@ li a:hover {
     color: gray;
 }
 
+li img {
+    vertical-align: middle;
+}
+
 nav {
     margin-top: 0px;
     width: 100%;

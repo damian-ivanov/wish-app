@@ -185,15 +185,15 @@ export const createWish = async (title, description, authorId, imageUrl) => {
     return true;
 };
 
-export const editWish = async (title, description, wishId) => {
+export const editWish = async (title, description, imageUrl, wishId) => {
 
     const db = getFirestore();
-
     const query = doc(db, "wishes", wishId);
 
     await updateDoc(query, {
         title: title,
         description: description,
+        imageUrl: imageUrl
     });
 
     return true;

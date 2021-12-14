@@ -15,13 +15,24 @@ export default function Edit() {
             })
     }, [wishId]);
 
+    var imageUrl;
+
+    const uploadHandler = async (e) => {
+        imageUrl = await dataService.uploadImage(e.target.files[0]);
+    }
+
+    const remove = async (e) => {
+        document.getElementById('currentImage').style.display = 'none';
+        document.getElementById('uploadNewImage').style.display = 'block';
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { title, description } = Object.fromEntries(formData);
 
-        dataService.editWish(title, description, wishId)
+        dataService.editWish(title, description, imageUrl, wishId)
             .then(() => {
                 navigate(`/wish/${wish.id}`);
             });
@@ -30,23 +41,31 @@ export default function Edit() {
 
     return (
         <>
-            <h3>Edit your wish</h3>
-            <form method="POST" onSubmit={submitHandler} className="wishItem">
-                <li className="wishCard">
-                <div>
+            <h1>Edit your wish</h1>
+            <form className="form" method="POST" onSubmit={submitHandler}>
+                <div className="formField">
                     <label htmlFor="title">Wish title:</label>
-                    <input type="text" name="title" id="title" className="text" defaultValue={wish.title} />
-                    </div>
-                    <div>
-                    <label htmlFor="title">Wish description:</label>
-                    <input type="text" name="description" id="description" className="text" defaultValue={wish.description} />
-                    </div>
-                    <p>Submitted by: {wish.authorId}</p>
-                    <p className="votes"><img src="heart.png" alt="heart"></img><div className="centered">{wish.likes}</div></p>
-                    <Link className="details" to={`/wish/${wish.id}`}>Back</Link>
-                    <button type="submit" value="Submit">Save</button>
-                </li>
-            </form>
+                    <input type="text" name="title" id="title" required minLength={3} maxLength={30} defaultValue={wish.title} />
+                </div>
+
+                <div className="formField">
+                    <label htmlFor="description">Why you want it?</label>
+                    <textarea name="description" id="description" rows="10" cols="35" required minLength={3} maxLength={500} defaultValue={wish.description} />
+                </div>
+
+                <div className="formField" id="currentImage">
+                    <label htmlFor="currentImage">Current image:</label><span onClick={remove}>(remove)</span>
+                    <img src={wish.imageUrl} alt='wish-pic' />
+                </div>
+
+                <div className="formField" id="uploadNewImage">
+                    <label htmlFor="image">Choose wish image:</label>
+                    <input type="file" id="image" name="image" accept="image/png, image/jpeg" onChange={uploadHandler} />
+                </div>
+
+                <Link className="details" to={`/wish/${wish.id}`}>Back</Link>
+                <button type="submit" value="Submit">Save</button>
+            </form >
         </>
     )
 }
