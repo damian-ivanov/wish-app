@@ -29,6 +29,10 @@ export default function Edit() {
     const submitHandler = async (e) => {
         e.preventDefault();
 
+        if (!imageUrl) {
+            imageUrl = wish.imageUrl;
+        }
+
         let formData = new FormData(e.currentTarget);
         let { title, description } = Object.fromEntries(formData);
 
