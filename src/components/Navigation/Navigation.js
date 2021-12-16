@@ -8,7 +8,6 @@ import snowflake from '../../../src/snowflake.png';
 const Navigation = () => {
 
   const [userEmail, setuserEmail] = useState(AuthProvider.email);
-  //const auth = getAuth();
 
   useEffect(() => {
     auth.onAuthStateChanged(AuthProvider => {
@@ -19,8 +18,6 @@ const Navigation = () => {
       }
     })
   })
-
-
 
   let guestNavigation = (
     <>

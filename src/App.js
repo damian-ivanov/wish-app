@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 
 import Navigation from './components/Navigation/Navigation';
@@ -13,10 +13,10 @@ import Logout from './components/Logout/Logout';
 import MyProfile from './components/MyProfile/MyProfile';
 import NotFound from './components/NotFound/NotFound';
 import Edit from './components/Edit/Edit';
+import RequireAuth from './components/common/RequireAuth';
 
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from './config/firebaseConfig';
-import { getAuth } from "firebase/auth";
 
 import './App.css';
 
@@ -24,44 +24,33 @@ function App() {
 
   initializeApp(firebaseConfig);
 
-  function RequireAuth() {
-    
-    const auth = getAuth();
-
-    var location = useLocation();
-    if (auth.currentUser == null) {
-      return <Navigate to="/login" state={{ prevPath: location.pathname }} />;
-    }
-    return <Outlet />;
-  }
-
   return (
     <AuthProvider>
-    <div className="App">
-      <Navigation />
-      <Header />
+      <div className="App">
+        <Navigation />
+        <Header />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<WishList />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/wish/:wishId" element={<WishDetails />} />
-          <Route path='*' element={<NotFound />} />
+        <main>
+          <Routes>
+            <Route path="/" element={<WishList />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/wish/:wishId" element={<WishDetails />} />
+            <Route path='*' element={<NotFound />} />
 
-          <Route element={<RequireAuth />}>
-            <Route path="/myprofile" element={<MyProfile />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/edit/:wishId" element={<Edit />} />
-          </Route>
+            <Route element={<RequireAuth />}>
+              <Route path="/myprofile" element={<MyProfile />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/edit/:wishId" element={<Edit />} />
+            </Route>
 
-        </Routes>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+          </Routes>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </AuthProvider>
   );
 }

@@ -29,8 +29,6 @@ export default function MyProfile() {
     //         })
     // }, [userEmail]);
 
-    console.log(userEmail)
-
     return (
         <>
             <h3>My wishes:</h3>
