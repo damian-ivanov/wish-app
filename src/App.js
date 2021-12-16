@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet, Navigate, useLocation } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 import Navigation from './components/Navigation/Navigation';
 import Header from './components/Header/Header';
@@ -24,16 +25,18 @@ function App() {
   initializeApp(firebaseConfig);
 
   function RequireAuth() {
+    
     const auth = getAuth();
-    var location = useLocation();
 
-    if (!auth.currentUser) {
+    var location = useLocation();
+    if (auth.currentUser == null) {
       return <Navigate to="/login" state={{ prevPath: location.pathname }} />;
     }
     return <Outlet />;
   }
 
   return (
+    <AuthProvider>
     <div className="App">
       <Navigation />
       <Header />
@@ -59,6 +62,7 @@ function App() {
         <Footer />
       </footer>
     </div>
+    </AuthProvider>
   );
 }
 

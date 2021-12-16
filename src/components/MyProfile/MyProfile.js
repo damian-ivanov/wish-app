@@ -1,27 +1,41 @@
-import { useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
+import { useEffect, useState, useContext } from "react";
 import * as dataService from '../../services/dataService';
+import { AuthContext } from '../../contexts/AuthContext';
 import WishItem from '../WishItem/WishItem';
 import styles from '../WishList/WishList.module.css';
 
 export default function MyProfile() {
 
     const [wishes, setWishes] = useState([]);
-    const auth = getAuth();
-    let email = auth.currentUser.email != null ? auth.currentUser.email : "";
+    const [userEmail, setuserEmail] = useState([]);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        dataService.getAll(email)
-            .then(result => {
-                setWishes(result);
-            })
-    }, [email]);
+        if (user) {
+            setuserEmail(user.email);
+            dataService.getAll(userEmail)
+                .then(result => {
+                    setWishes(result);
+                }, [userEmail]);
+        } else {
+            setuserEmail(null);
+        }
+    }, [user, userEmail])
+
+    // useEffect(() => {
+    //     dataService.getAll(userEmail)
+    //         .then(result => {
+    //             setWishes(result);
+    //         })
+    // }, [userEmail]);
+
+    console.log(userEmail)
 
     return (
         <>
             <h3>My wishes:</h3>
 
-            {wishes.length > 0
+            {wishes.length > 0 && userEmail != null
                 ? (
                     <ul className={styles.wishList}>
                         {wishes.map(x => <WishItem key={x.id} wish={x} />)}

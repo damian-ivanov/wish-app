@@ -1,18 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+//import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
+import { AuthProvider, auth } from '../../contexts/AuthContext';
 import snowflake from '../../../src/snowflake.png';
 
 const Navigation = () => {
 
-  const [userEmail, setuserEmail] = useState('');
-  const auth = getAuth();
+  const [userEmail, setuserEmail] = useState(AuthProvider.email);
+  //const auth = getAuth();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setuserEmail(user.email);
+    auth.onAuthStateChanged(AuthProvider => {
+      if (AuthProvider) {
+        setuserEmail(AuthProvider.email);
       } else {
         setuserEmail(null);
       }
