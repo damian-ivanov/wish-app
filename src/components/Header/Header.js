@@ -10,7 +10,7 @@ export default function Header() {
             <header className={styles.header}>
                 <div>
                     <h1>Share your Christmas wish!</h1>
-                    <h3>See the how it is rated by Santa</h3>
+                    <h3>...and see the how it is rated</h3>
                 </div>
                 <img src="https://c.tenor.com/D_gQuXRVQ2wAAAAC/sports-sportsmanias.gif" className={styles.logo} alt="logo" />
             </header>
