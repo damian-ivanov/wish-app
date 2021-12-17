@@ -54,7 +54,17 @@ export default function WishDetails() {
         navigate(`/edit/${wish.id}`);
     };
 
-        if (isReady === false) {
+    const deleteConfirmation = function () {
+        document.getElementById('confirmDelete').style = "display:inline-block; float: right;";
+        document.getElementById('delete').style = "display:none"
+    }
+
+    const cancel = function () {
+        document.getElementById('confirmDelete').style = "display:none";
+        document.getElementById('delete').style = "display:inline-block"
+    }
+
+    if (isReady === false) {
         return <img src={loader} alt='loading'></img>
     }
 
@@ -66,7 +76,7 @@ export default function WishDetails() {
                     <div className={styles.wishCard}>
                         <h4>{wish.title}</h4>
                         <div className={styles.wishImage}>
-                        <img src={wish.imageUrl} alt='wish-pic' />
+                            <img src={wish.imageUrl} alt='wish-pic' />
                         </div>
                         <p className={styles.text}>{wish.description}</p>
                         <p>Submitted by: {wish.authorId}</p>
@@ -79,7 +89,12 @@ export default function WishDetails() {
 
                         {auth.currentUser && auth.currentUser.email === wish.authorId ?
                             <><button type="button" onClick={editHandler}>Edit</button>
-                                <button type="button" onClick={deleteHandler}>Delete</button></> :
+                                <button type="button" id="delete" onClick={deleteConfirmation}>Delete</button>
+                                <span id='confirmDelete' style={{ display: "none" }}>
+                                    <button onClick={cancel}>Cancel</button>
+                                    <button style={{ backgroundColor: "#E75345", color: "white" }} onClick={deleteHandler}>Confirm deletion</button>
+                                </span>
+                            </> :
                             <></>}
 
                     </div>
