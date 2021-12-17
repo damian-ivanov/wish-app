@@ -1,17 +1,35 @@
-.wishItem {
+@media only screen and (max-width: 800px) {
+    .wishItem {
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+
+    .wishCard {
+        width: 90% !important;
+        margin: auto;
+  }
+
+  .statistics {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px !important;
+}
+}
+  
+  .wishItem {
     display: flex;
     align-items: center;
-    font-size: calc(9px + 2vmin);
+    font-size: calc(6px + 2vmin);
     width: 80%;
     margin: 0 auto;
     flex-direction: row;
+    justify-content: space-evenly;
     align-items: baseline;
-    justify-content: space-around;
 }
 
 .wishCard {
     margin-top: 20px;
-    width: 50%;
+    width: 35%;
     border: 1px solid gray;
     border-radius: 15px;
     background: darkseagreen;
@@ -73,6 +91,7 @@ button {
 
 .statistics {
     width: 30%;
+    
 }
 
 .statistics ul {

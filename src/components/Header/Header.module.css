@@ -1,6 +1,6 @@
 .header {
     background-color: #fcfefc;
-    min-height: 35vh;
+    height: 250px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,6 +10,6 @@
 }
 
 .logo {
-    height: 35vmin;
+    height: 100%;
     pointer-events: none;
   }
