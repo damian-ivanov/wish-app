@@ -50,12 +50,12 @@ export default function Create() {
 
                 <div className="formField">
                     <label htmlFor="image">Choose wish image:</label>
-                    <input type="file" id="image" name="image" accept="image/png, image/jpeg" onChange={uploadHandler} />
+                    <input type="file" id="image" name="image" accept="image/png, image/jpeg" required  onChange={uploadHandler} />
                 </div>
 
                 <div className="formField">
                     <label htmlFor="isGood">I confirm I was a good boy / girl last year</label>
-                    <input type="checkbox" name="isGood" id="isGood" required default="unchecked" />
+                    <input type="checkbox" name="isGood" id="isGood" required default="unchecked" style={{width: "40px", height: "40px"}}/>
                 </div>
 
                 <div className="formButton">
