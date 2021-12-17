@@ -10,9 +10,17 @@ export default function Create() {
     var imageUrl;
 
     const uploadHandler = async (e) => {
+        let button = document.getElementById('create');
+        button.disabled=true;
+        button.innerHTML= "Upload in progress";
+
         imageUrl = await dataService.uploadImage(e.target.files[0]);
-        console.log("IMAGE: " + imageUrl)
+
+        document.getElementById('create').innerHTML= "Create";
+        button.disabled = false;
     }
+
+
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -51,7 +59,7 @@ export default function Create() {
                 </div>
 
                 <div className="formButton">
-                    <button>Create</button>
+                    <button id='create'>Create</button>
                 </div>
             </form>
         </>
