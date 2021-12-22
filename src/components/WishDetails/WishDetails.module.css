@@ -19,7 +19,6 @@
   .wishItem {
     display: flex;
     align-items: center;
-    font-size: calc(6px + 2vmin);
     width: 80%;
     margin: 0 auto;
     flex-direction: row;
