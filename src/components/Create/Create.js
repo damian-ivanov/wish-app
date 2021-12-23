@@ -55,7 +55,7 @@ export default function Create() {
 
                 <div className="formField">
                     <label htmlFor="isGood">I confirm I was a good boy / girl last year</label>
-                    <input type="checkbox" name="isGood" id="isGood" required default="unchecked" style={{width: "40px", height: "40px"}}/>
+                    <input type="checkbox" name="isGood" id="isGood" required default="unchecked" style={{width: "40px", height: "40px", marginTop: "20px"}}/>
                 </div>
 
                 <div className="formButton">
