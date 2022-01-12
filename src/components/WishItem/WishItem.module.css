@@ -50,6 +50,7 @@ h4 {
 .details {
     color: white !important;
     font-weight: bold;
+    font-size: 22px;
 }
 
 ul li.wishCard a:hover {
