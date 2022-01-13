@@ -31,7 +31,23 @@ export default function MyProfile() {
 
     return (
         <>
+            <h3>Personal statistics</h3>
+            <div className={styles.stats}>
+            <div>
+                <h4>Total wishes submitted:</h4>
+                <p>0</p>
+            </div>
+            <div>
+                <h4>Total likes received:</h4>
+                <p>0</p>
+            </div>
+            <div>
+                <h4>Total likes given:</h4>
+                <p>0</p>
+            </div>
+            </div>
             <h3>My wishes:</h3>
+
 
             {wishes.length > 0 && userEmail != null
                 ? (

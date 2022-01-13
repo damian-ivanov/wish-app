@@ -21,3 +21,8 @@ button:first-child {
     margin-left: 10px;
 }
   
+.stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
