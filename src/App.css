@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
 
+
+@media only screen and (max-width: 800px) {
+  .form {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .form {
+    width: 50% !important;
+  }
+}
+
 .App {
   text-align: center;
   font-family: 'Mountains of Christmas';
@@ -54,6 +67,7 @@ button:hover {
   border: 1px solid gray;
   border-radius: 10px;
   padding: 5px;
+  width: 90%;
 }
 
 .formField #image{
@@ -83,6 +97,7 @@ button:hover {
   border: 1px solid gray;
   border-radius: 15px;
   padding: 10px;
+  width: 90%;
 }
 
 .details {
