@@ -36,7 +36,7 @@ export default function Create() {
 
     return (
         <>
-            <h1>Create new wish</h1>
+            <h1>Create a new wish</h1>
             <form className="form" method="POST" onSubmit={submitHandler}>
                 <div className="formField">
                     <label htmlFor="title">Wish title:</label>

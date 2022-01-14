@@ -26,4 +26,9 @@ button:first-child {
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: 30px;
+    background: #8fbc8f47;
+}
+
+.stats p {
+    font-size: 26px;
 }
