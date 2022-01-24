@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
-//import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
 import { AuthProvider, auth } from '../../contexts/AuthContext';
 import snowflake from '../../../src/snowflake.png';

@@ -1,13 +1,32 @@
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
 .footer {
     border-top: 1px lightgray solid;
     background-color: #fcfefc;;
     margin-top:50px;
     min-height: 50vh;
     font-family: 'Mountains of Christmas';
-    font-size: calc(12px + 2vmin);
+    font-size: 24px;
     color: gray;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.social {
+    display: flex;
+    justify-content: space-evenly;
+    width: 20%;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a :hover {
+    color: #e55546;
 }
