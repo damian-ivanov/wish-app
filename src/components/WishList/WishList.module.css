@@ -26,7 +26,10 @@ button:first-child {
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: 30px;
-    background: #8fbc8f47;
+    background: #fcfefc;
+    border-bottom: 1px lightgray solid;
+    border-top: 1px lightgray solid;
+    color: gray;
 }
 
 .stats p {
