@@ -1,0 +1,13 @@
+.contact {
+    width: 45%;
+    margin: auto;
+}
+
+.contact img {
+    width: 100%;
+    margin-bottom: -110px;
+}
+
+.contact p {
+    color: gray;
+}

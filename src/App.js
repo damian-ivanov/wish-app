@@ -13,6 +13,7 @@ import Logout from './components/Logout/Logout';
 import MyProfile from './components/MyProfile/MyProfile';
 import NotFound from './components/NotFound/NotFound';
 import Edit from './components/Edit/Edit';
+import ContactMe from './components/ContactMe/ContactMe';
 import RequireAuth from './components/common/RequireAuth';
 
 import { initializeApp } from "firebase/app"
@@ -36,6 +37,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/contactme" element={< ContactMe/>} />
             <Route path="/wish/:wishId" element={<WishDetails />} />
             <Route path='*' element={<NotFound />} />
 

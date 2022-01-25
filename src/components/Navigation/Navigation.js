@@ -42,6 +42,7 @@ const Navigation = () => {
       <ul>
         <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/'}>Index</NavLink></li>
         {userEmail ? userNavigation : guestNavigation}
+        <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/contactme'}>Contact me</NavLink></li>
       </ul>
     </nav >
   );
