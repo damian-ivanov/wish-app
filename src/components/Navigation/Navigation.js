@@ -31,7 +31,7 @@ const Navigation = () => {
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/create'}>New wish</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/logout'}>Log out</NavLink></li>
       <li><img src={snowflake} alt="snowflake"/></li>
-      <li>Welcome, {userEmail}</li>
+      <li>Welcome, <NavLink to={'/myprofile'}>{userEmail}</NavLink></li>
     </>
   )
 
