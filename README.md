@@ -1,20 +1,22 @@
-# "Wish" app - share your Christmas wish with others"
+# "Wish" app - share your Christmas wish with others and see how it is rated
 
 Note: this is a SPA built for the ReactJS Softuni defence project.
 
 ## The idea
-The purpose of this app is to allow users to share their Christmas wish(es) with other people and see how others like it. You have the ability to sort the wishes by date and by count of likes on the front (index) page. In the details page of each wish you can see when it was submitted, how many likes does it have and also the list of users who liked it.
+The purpose of this app is to allow users to share their Christmas wish(es) with other people and see how others rate it. Users have the ability to sort the wishes by date and by count of likes on the front (index) page - ascending and descending. In the details page of each wish you can see when it was submitted, how many likes does it have and also the list of users who liked it.
 
 ## User experience
 ### Not logged in users can
 - open the app and see the list with Christmas wishes of the other people
 - view the details on the wish: it's title, description and photo, date of submission, the email of the user who created it, the count of likes and the list of people who gave a like to this wish
-- access the Log in and Registration pages
+- access the Log in, Registration and "Contact me" pages
 
-### Logged users can
-- create a new wish (add a title, description and a photo)
+### Logged in users can
+- create a new wish (add a title, description and upload a photo)
 - edit their wishes
-- give and revoke their like on other people's wishes
+- delete their wishes
+- give and revoke their likes on other people's wishes
+- access the "My profile" page where they can see their personal statistics: the total count of the wishes they have submitted and the count of received likes. On that page users can also see all their submitted wishes
 - log out 
 
 ## Technology used
