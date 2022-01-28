@@ -19,6 +19,11 @@ The purpose of this app is to allow users to share their Christmas wish(es) with
 - access the "My profile" page where they can see their personal statistics: the total count of the wishes they have submitted and the count of received likes. On that page users can also see all their submitted wishes
 - log out 
 
+## Workflows
+
+### Registration
+Users can create a new account by clicking on the "Register" link located at the navigation bar. They need to use an unique email address which will serve as their username. They also need to enter and re-enter a password.
+
 ## Technology used
 - ReactJS
 - Firebase for authentication
