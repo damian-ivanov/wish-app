@@ -24,6 +24,31 @@ The purpose of this app is to allow users to share their Christmas wish(es) with
 ### Registration
 Users can create a new account by clicking on the "Register" link located at the navigation bar. They need to use an unique email address which will serve as their username. They also need to enter and re-enter a password.
 
+### Login
+Users can log in by clicking on the "Log in" link in the navigation at the top of the page. They will have to use their email and password they chose during the registration process.
+
+### Creating a new wish
+Logged in users can create a new wish by clicking on the "New wish" link at the navigation bar. They will have to enter a wish title, describe why they want the item, choose an image to upload and click on the checkbox to verify they were good last year :) 
+Once all the information is entered - they can click on "Create" and the new wish will be entered in the database. The user will be taken to the index page.
+
+### Editing and deleting a wish
+Logged in users will see an "Edit" and "Delete" buttons when they navigate to a wish that they have created. When they click on the "Edit" button they will see a preloaded form with the wish details. There they can edit the with title, description and upload a new image. Upon clicking on the "Save" button - the changes they did will be populated.
+If they don't make any changes - the wish will be kept as it was.
+
+Clicking on the "Delete" button will reveal two new buttons on the right side - "Cancel" and "Confirm deletion". The buttons are intentionally moved to the right, so that the user can't accidentally click on "Confirm deletion".
+Once they click on the "Confirm deletion" button - the wish will be removed from the database and the user will be taken to the index page.
+
+### Giving and revoking a vote
+Logged in users are able to give and revoke their vote to all wishes (including their own). They have to be on the wish details page in order to see the "Vote!" or "(revoke)" links. They can give only one vote per wish.
+Upon clicking on the "Vote!" or "(revoke)" link - the request will be immediately populated in the database and also reflected in the app on the right side.
+
+An anonymous user will see a "Log in to vote" link, instead of the "Vote!" link. When he clicks it he will be redirected to the "Login" page. When he enters his login details he will be automatically redirected to the wish where he attempted to vote. The status of the vote button will then depend on whether he has already voted or not.
+
+### Misc
+- if an anonymous user attempts to direcly access a URL for edit, vote, delete or "my profile" - he will be automatically redirected to the log in page
+- if an user tries to access an URL for non-existing wish - he will see a message "No wish with this ID found!"
+- if a user enters an invalid URL he will see a 404 page 
+
 ## Technology used
 - ReactJS
 - Firebase for authentication
