@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
+import loader from '../../../src/loader.gif';
 import * as dataService from '../../services/dataService';
 
 export default function Edit() {
@@ -9,11 +10,13 @@ export default function Edit() {
     const [wish, setWish] = useState([]);
     const { user } = useContext(AuthContext);
     const { wishId } = useParams();
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         dataService.getOne(wishId)
             .then(result => {
                 setWish(result);
+                setIsReady(true);
             })
     }, [wishId]);
 
@@ -43,6 +46,10 @@ export default function Edit() {
                 navigate(`/wish/${wish.id}`);
             });
 
+    }
+
+    if (isReady === false) {
+        return <img src={loader} alt='loading'></img>
     }
 
     return (
