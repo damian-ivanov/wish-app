@@ -48,6 +48,7 @@ An anonymous user will see a "Log in to vote" link, instead of the "Vote!" link.
 - if an anonymous user attempts to direcly access a URL for edit, vote, delete or "my profile" - he will be automatically redirected to the log in page
 - if an user tries to access an URL for non-existing wish - he will see a message "No wish with this ID found!"
 - if a user enters an invalid URL he will see a 404 page 
+- if a user attempts to edit another user's wish by manually typing the wish ID in the URL - they will see a message "Ooops... it seems this is not your wish." and a link to go back to the wish details page.
 
 ## Technology used
 - ReactJS
