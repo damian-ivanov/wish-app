@@ -24,6 +24,9 @@ The purpose of this app is to allow users to share their Christmas wish(es) with
 ### Registration
 Users can create a new account by clicking on the "Register" link located at the navigation bar. They need to use an unique email address which will serve as their username. They also need to enter and re-enter a password.
 
+![register](https://user-images.githubusercontent.com/62560896/151846043-7162bc7a-85bd-4214-9701-d4042ff22ac9.png)
+
+
 ### Login
 Users can log in by clicking on the "Log in" link in the navigation at the top of the page. They will have to use their email and password they chose during the registration process.
 
