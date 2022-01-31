@@ -5,6 +5,9 @@ Note: this is a SPA built for the ReactJS Softuni defence project.
 ## The idea
 The purpose of this app is to allow users to share their Christmas wish(es) with other people and see how others rate it. Users have the ability to sort the wishes by date and by count of likes on the front (index) page - ascending and descending. In the details page of each wish you can see when it was submitted, how many likes does it have and also the list of users who liked it.
 
+![index](https://user-images.githubusercontent.com/62560896/151846862-1ea1615a-cff6-443a-ae81-d82908b81bf8.png)
+
+
 ## User experience
 ### Not logged in users can
 - open the app and see the list with Christmas wishes of the other people
@@ -30,15 +33,27 @@ Users can create a new account by clicking on the "Register" link located at the
 ### Login
 Users can log in by clicking on the "Log in" link in the navigation at the top of the page. They will have to use their email and password they chose during the registration process.
 
+![login](https://user-images.githubusercontent.com/62560896/151846905-2a9ee427-588c-4759-b9c6-20a29b7e2fd8.png)
+
+
 ### Creating a new wish
 Logged in users can create a new wish by clicking on the "New wish" link at the navigation bar. They will have to enter a wish title, describe why they want the item, choose an image to upload and click on the checkbox to verify they were good last year :) 
 Once all the information is entered - they can click on "Create" and the new wish will be entered in the database. The user will be taken to the index page.
+
+![create](https://user-images.githubusercontent.com/62560896/151847107-7eb3d709-ccd5-411d-a6ed-a984826ad78d.png)
+
 
 ### Editing and deleting a wish
 Logged in users will see an "Edit" and "Delete" buttons when they navigate to a wish that they have created. When they click on the "Edit" button they will see a preloaded form with the wish details. There they can edit the with title, description and upload a new image. Upon clicking on the "Save" button - the changes they did will be populated.
 If they don't make any changes - the wish will be kept as it was.
 
+![edit](https://user-images.githubusercontent.com/62560896/151847253-33479e98-076c-484d-9841-0c7ae9c0f627.png)
+
+
 Clicking on the "Delete" button will reveal two new buttons on the right side - "Cancel" and "Confirm deletion". The buttons are intentionally moved to the right, so that the user can't accidentally click on "Confirm deletion".
+
+![delete](https://user-images.githubusercontent.com/62560896/151847381-e74645da-aa91-4896-a3bd-99fc4de47c04.png)
+
 Once they click on the "Confirm deletion" button - the wish will be removed from the database and the user will be taken to the index page.
 
 ### Giving and revoking a vote
