@@ -29,18 +29,23 @@ Users can create a new account by clicking on the "Register" link located at the
 
 ![register](https://user-images.githubusercontent.com/62560896/151846043-7162bc7a-85bd-4214-9701-d4042ff22ac9.png)
 
+All fields are mandatory and both passwords should match.
+
 
 ### Login
 Users can log in by clicking on the "Log in" link in the navigation at the top of the page. They will have to use their email and password they chose during the registration process.
 
 ![login](https://user-images.githubusercontent.com/62560896/151846905-2a9ee427-588c-4759-b9c6-20a29b7e2fd8.png)
 
+All fields are mandatory.
 
 ### Creating a new wish
 Logged in users can create a new wish by clicking on the "New wish" link at the navigation bar. They will have to enter a wish title, describe why they want the item, choose an image to upload and click on the checkbox to verify they were good last year :) 
 Once all the information is entered - they can click on "Create" and the new wish will be entered in the database. The user will be taken to the index page.
 
 ![create](https://user-images.githubusercontent.com/62560896/151847107-7eb3d709-ccd5-411d-a6ed-a984826ad78d.png)
+
+All fields and the checkbox are mandatory.
 
 
 ### Editing and deleting a wish
