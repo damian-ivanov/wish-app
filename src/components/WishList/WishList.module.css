@@ -34,4 +34,9 @@ button:first-child {
 
 .stats p {
     font-size: 26px;
+    margin: 5px;
+}
+
+.stats h4 {
+    margin: 5px;
 }
