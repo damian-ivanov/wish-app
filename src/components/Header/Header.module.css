@@ -1,4 +1,10 @@
-.header {
+@media only screen and (max-width: 600px) {
+    .header p {
+        margin: 0px !important;
+    }
+  }
+  
+  .header {
     background-color: #fcfefc;
     display: flex;
     flex-direction: row;
@@ -14,3 +20,9 @@
     height: 100%;
     pointer-events: none;
   }
+
+.header p {
+    width: 100%;
+    margin: 0px;
+    margin-left: 55%;
+}
