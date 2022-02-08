@@ -42,7 +42,7 @@ const Navigation = () => {
     <>
       {closed ? <></> :
         <div className={styles.banner} id="banner">
-          <p>Note: this app was developed for educational purposes only. All information you enter is public. Please, don't share any personal information.<button onClick={() => setClosed(true)}>Close</button></p>
+          <p><b>Note:</b> this app was developed for educational purposes only. All information you enter is public. Please, don't share any personal information.<button onClick={() => setClosed(true)}>Close</button></p>
           
         </div>}
 

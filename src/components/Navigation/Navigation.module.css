@@ -41,3 +41,7 @@ nav {
     border-bottom: 1px lightgray dashed;
     color: lightslategray;
 }
+
+.banner button {
+    margin-left: 10px;
+}
