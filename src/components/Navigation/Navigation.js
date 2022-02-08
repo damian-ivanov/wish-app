@@ -7,6 +7,7 @@ import snowflake from '../../../src/snowflake.png';
 const Navigation = () => {
 
   const [userEmail, setuserEmail] = useState(AuthProvider.email);
+  const [closed, setClosed] = useState(false);
 
   useEffect(() => {
     auth.onAuthStateChanged(AuthProvider => {
@@ -30,7 +31,7 @@ const Navigation = () => {
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/myprofile'}>My profile</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/create'}>New wish</NavLink></li>
       <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/logout'}>Log out</NavLink></li>
-      <li><img src={snowflake} alt="snowflake"/></li>
+      <li><img src={snowflake} alt="snowflake" /></li>
       <li>Welcome, <NavLink to={'/myprofile'}>{userEmail}</NavLink></li>
     </>
   )
@@ -39,16 +40,19 @@ const Navigation = () => {
   return (
 
     <>
-    <div className={styles.banner}>
-      <p>Note: this app was developed for educational purposes only. All information you enter is public. Please, don't share any personal information.</p>
-    </div>
-    < nav >
-      <ul>
-        <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/'}>Index</NavLink></li>
-        {userEmail ? userNavigation : guestNavigation}
-        <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/contactme'}>Contact me</NavLink></li>
-      </ul>
-    </nav >
+      {closed ? <></> :
+        <div className={styles.banner} id="banner">
+          <p>Note: this app was developed for educational purposes only. All information you enter is public. Please, don't share any personal information.<button onClick={() => setClosed(true)}>Close</button></p>
+          
+        </div>}
+
+      < nav >
+        <ul>
+          <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/'}>Index</NavLink></li>
+          {userEmail ? userNavigation : guestNavigation}
+          <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/contactme'}>Contact me</NavLink></li>
+        </ul>
+      </nav >
     </>
   );
 }
