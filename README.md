@@ -2,6 +2,9 @@
 
 Note: this is a SPA built for the ReactJS Softuni defence project.
 
+## Live demo:
+https://wish-app-18ca9.web.app/
+
 ## The idea
 The purpose of this app is to allow users to share their Christmas wish(es) with other people and see how others rate it. Users have the ability to sort the wishes by date and by count of likes on the front (index) page - ascending and descending. In the details page of each wish you can see when it was submitted, how many likes does it have and also the list of users who liked it.
 
