@@ -1,18 +1,24 @@
-.contact {
-    width: 45%;
+@media only screen and (max-width: 500px) {
+    .contact {
+        width: 80% !important;
+    }
+  }
+  
+  .contact {
+    width: 30%;
     margin: auto;
     margin-bottom: 100px;
+    word-break: break-word;
 }
 
 .contact img {
     width: 100%;
-    margin-bottom: -110px;
 }
 
 .contact p {
     color: gray;
 }
 
-.attribution {
-    font-size: 11px;
+.contact a:hover {
+    color: #e55546;;
 }

@@ -1,13 +1,13 @@
 .header {
     background-color: #fcfefc;
-    height: 250px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
     color: lightgray;
     margin-bottom: 50px;
     border-bottom: 1px lightgray solid;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .logo {

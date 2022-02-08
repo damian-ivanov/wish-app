@@ -1,4 +1,10 @@
-ul.wishList {
+@media only screen and (max-width: 800px) {
+    ul.wishList {
+        width: 100% !important;
+    }
+  }
+  
+  ul.wishList {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
