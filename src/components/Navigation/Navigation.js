@@ -38,6 +38,10 @@ const Navigation = () => {
 
   return (
 
+    <>
+    <div className={styles.banner}>
+      <p>Note: this app was developed for educational purposes only. All information you enter is public. Please, don't share any personal information.</p>
+    </div>
     < nav >
       <ul>
         <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/'}>Index</NavLink></li>
@@ -45,6 +49,7 @@ const Navigation = () => {
         <li><NavLink className={({ isActive }) => isActive ? (styles.clicked) : ""} to={'/contactme'}>Contact me</NavLink></li>
       </ul>
     </nav >
+    </>
   );
 }
 

@@ -33,3 +33,11 @@ nav {
     color: gray;
     text-decoration: underline;
 }
+
+.banner p {
+    background-color: #ffffa3;
+    margin: 0px;
+    padding: 5px;
+    border-bottom: 1px lightgray dashed;
+    color: lightslategray;
+}
