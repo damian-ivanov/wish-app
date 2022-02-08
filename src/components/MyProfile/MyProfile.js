@@ -3,11 +3,14 @@ import * as dataService from '../../services/dataService';
 import { AuthContext } from '../../contexts/AuthContext';
 import WishItem from '../WishItem/WishItem';
 import styles from '../WishList/WishList.module.css';
+import loader from '../../../src/loader.gif';
 
 export default function MyProfile() {
 
     const [wishes, setWishes] = useState([]);
     const [userEmail, setuserEmail] = useState([]);
+    const [isReady, setIsReady] = useState(false);
+
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
@@ -16,6 +19,7 @@ export default function MyProfile() {
             dataService.getAll(userEmail)
                 .then(result => {
                     setWishes(result);
+                    setIsReady(true);
                 }, [userEmail]);
         } else {
             setuserEmail(null);
@@ -30,6 +34,10 @@ export default function MyProfile() {
     //             setWishes(result);
     //         })
     // }, [userEmail]);
+
+    if (isReady === false) {
+        return <img src={loader} alt='loading'></img>
+    }
 
     return (
         <>
