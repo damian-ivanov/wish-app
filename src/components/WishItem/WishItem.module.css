@@ -16,12 +16,13 @@
 
 h4 {
     border-bottom: 1px white dashed;
+    margin: 8px;
 }
 
 .text {
     background: white;
-    height: 200px;
-    margin: 20px;
+    height: 100px;
+    margin: 8px;
     color: gray;
     border-radius: 13px;
     overflow: hidden;
@@ -58,11 +59,15 @@ ul li.wishCard a:hover {
 }
 
 .wishImage {
-    height: 300px;
+    height: 290px;
 }
 
 .wishCard img {
     width: 95%;
     height: 95%;
     object-fit: cover;
+}
+
+p {
+    margin: 8px;
 }
