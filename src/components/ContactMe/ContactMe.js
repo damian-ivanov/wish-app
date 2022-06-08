@@ -24,10 +24,14 @@ useEffect(() => {
                 <p>This site was created as a React JS project as part of my "SoftUni" education.</p>
                 <p>You can reach me at damian.i.ivanov@gmail.com, and you can see my other projects at <a href="https://github.com/damian-ivanov" rel="noreferrer" target="_blank">Github</a></p>
             </div>
-            {joke != null ? <article><p style={{color:"darkseagreen"}}> Here is a random joke:</p>
+            
+            {joke != null ? 
+
+            <article><p style={{color:"darkseagreen"}}> Here is a random joke:</p>
                 <p>{joke.setup}</p>
                 <b>{joke.delivery}</b>
             </article>
+
             : <img src={loader} alt='loading'></img>}
         </>
     )

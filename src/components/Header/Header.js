@@ -6,6 +6,10 @@ export default function Header() {
 
     let location = useLocation();
 
+    if (location.pathname === '/contactme') {
+        return null;
+    }
+
     if (location.pathname !== '/notfound') {
         return (
             <>

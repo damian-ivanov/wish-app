@@ -5,9 +5,10 @@
   }
   
   .contact {
-    width: 30%;
+    width: 25%;
     margin: auto;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
     word-break: break-word;
 }
 
@@ -21,4 +22,12 @@
 
 .contact a:hover {
     color: #e55546;;
+}
+
+article {
+    border: 1px gray dashed;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
 }
