@@ -34,9 +34,12 @@ const newJoke = function () {
             {isReady ? 
 
             <article><p style={{color:"darkseagreen"}}> Here is a random joke:</p>
+
+                {joke.joke ? <p>{joke.joke}</p> : ""}
                 <p>{joke.setup}</p>
                 <b>{joke.delivery}</b>
                 <p><button onClick={newJoke}>new joke</button></p>
+
             </article>
 
             : <img src={loader} alt='loading'></img>}
