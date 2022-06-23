@@ -38,7 +38,7 @@ const newJoke = function () {
                 {joke.joke ? <p>{joke.joke}</p> : ""}
                 <p>{joke.setup}</p>
                 <b>{joke.delivery}</b>
-                <p><button onClick={newJoke}>new joke</button></p>
+                <p><button onClick={newJoke}>see new joke</button></p>
 
             </article>
 
